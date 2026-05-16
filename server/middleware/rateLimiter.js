@@ -5,6 +5,7 @@ const rateLimit = require('express-rate-limit');
  * Beperkt het aantal requests per IP-adres
  */
 const formLimiter = rateLimit({
+  validate: { xForwardedForHeader: false },
   windowMs: 15 * 60 * 1000, // 15 minuten
   max: 10, // Max 10 requests per IP per 15 minuten
   standardHeaders: true,
@@ -19,6 +20,7 @@ const formLimiter = rateLimit({
  * Strikt limiter voor review-submissions
  */
 const reviewLimiter = rateLimit({
+  validate: { xForwardedForHeader: false },
   windowMs: 60 * 60 * 1000, // 1 uur
   max: 3, // Max 3 reviews per uur per IP
   standardHeaders: true,
@@ -30,3 +32,4 @@ const reviewLimiter = rateLimit({
 });
 
 module.exports = { formLimiter, reviewLimiter };
+
