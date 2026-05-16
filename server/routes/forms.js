@@ -39,7 +39,7 @@ router.post('/contact', formLimiter, contactValidation, (req, res) => formContro
  * POST /api/review
  * Review plaatsen
  */
-router.post('/review', reviewLimiter, reviewValidation, (req, res) => formController.submitReview(req, res));
+router.post('/review', reviewValidation, (req, res) => formController.submitReview(req, res));
 
 /**
  * GET /api/health
@@ -54,3 +54,4 @@ router.get('/health', (req, res) => {
 });
 
 module.exports = router;
+
