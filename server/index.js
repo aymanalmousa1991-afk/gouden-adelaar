@@ -11,6 +11,8 @@ const path = require('path');
 const emailService = require('./services/emailService');
 const fileService = require('./services/fileService');
 const formRoutes = require('./routes/forms');
+const reviewRoutes = require('./routes/reviews');
+const database = require('./services/database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,6 +26,7 @@ app.use(helmet({
       defaultSrc: ["'self'"],
       imgSrc: ["'self'", "https:", "data:", "blob:"],
       scriptSrc: ["'self'", "'unsafe-inline'"],
+      scriptSrcAttr: ["'unsafe-inline'"],
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com", "https://fonts.googleapis.com"],
       connectSrc: ["'self'", "https://api.emailjs.com"]
@@ -67,6 +70,7 @@ app.use(express.static(path.join(__dirname, '..', 'public'), {
 
 // ─── API Routes ─────────────────────────────────────────
 app.use('/api', formRoutes);
+app.use('/api/reviews', reviewRoutes);
 
 // ─── SPA fallback ───────────────────────────────────────
 // Alleen niet-API routes zonder bestandsextensie naar index.html sturen
@@ -101,7 +105,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-// ─── Start server ───────────────────────────────────────
+// Database connectie
+database.connect();
+
+// Start server
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`
   ╔══════════════════════════════════════════════════╗
