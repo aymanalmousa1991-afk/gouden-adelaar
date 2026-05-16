@@ -84,7 +84,7 @@ const contactValidation = [
   body('message')
     .trim()
     .notEmpty().withMessage('Bericht is verplicht')
-    .isLength({ min: 10, max: 5000 }).withMessage('Bericht moet tussen 10 en 5000 tekens zijn')
+    .isLength({ min: 2, max: 5000 }).withMessage('Bericht moet tussen 2 en 5000 tekens zijn')
     .customSanitizer(value => sanitize(value)),
 
   (req, res, next) => {
@@ -126,7 +126,7 @@ const reviewValidation = [
   body('message')
     .trim()
     .notEmpty().withMessage('Bericht is verplicht')
-    .isLength({ min: 10, max: 2000 }).withMessage('Bericht moet tussen 10 en 2000 tekens zijn')
+    .isLength({ min: 2, max: 2000 }).withMessage('Bericht moet tussen 2 en 2000 tekens zijn')
     .customSanitizer(value => sanitize(value)),
 
   (req, res, next) => {
@@ -151,5 +151,6 @@ module.exports = {
   contactValidation,
   reviewValidation
 };
+
 
 
