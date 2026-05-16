@@ -1,5 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+  // ─── HELPERS ─────────────────────────────────────────
+  function qs(sel, parent) { return (parent || document).querySelector(sel); }
+  function qsa(sel, parent) { return Array.from((parent || document).querySelectorAll(sel)); }
+
+  function toonSuccess(id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.classList.add('show');
+      setTimeout(function() { el.classList.remove('show'); }, 5000);
+    }
+  }
+
   // ─── NAV SCROLL ──────────────────────────────────────
   var nav = document.getElementById('nav');
   if (nav) {
@@ -13,13 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var menu = document.getElementById('mobileMenu');
   var closeBtn = document.getElementById('mobileCloseBtn');
 
-  function openMobileMenu() {
-    if (menu) { menu.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  }
-  function closeMobileMenu() {
-    if (menu) { menu.classList.remove('open'); document.body.style.overflow = ''; }
-  }
-
   if (ham && menu) {
     ham.addEventListener('click', function() {
       menu.classList.toggle('open');
@@ -31,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
       });
     }
-    menu.querySelectorAll('a').forEach(function(link) {
+    qsa('a', menu).forEach(function(link) {
       link.addEventListener('click', function() {
         menu.classList.remove('open');
         document.body.style.overflow = '';
@@ -47,8 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ─── HERO SLIDESHOW ─────────────────────────────────
   var current = 0;
-  var slides = document.querySelectorAll('.hero-slide');
-  var dots = document.querySelectorAll('.hero-dot');
+  var slides = qsa('.hero-slide');
+  var dots = qsa('.hero-dot');
 
   if (slides.length > 0) {
     function goSlide(n) {
@@ -59,14 +64,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if (slides[current]) slides[current].classList.add('active');
       if (dots[current]) dots[current].classList.add('active');
     }
-
     setInterval(function() { goSlide(current + 1); }, 5000);
-
-    document.querySelectorAll('[data-slide]').forEach(function(dot) {
+    qsa('[data-slide]').forEach(function(dot) {
       dot.addEventListener('click', function() {
         var n = parseInt(this.getAttribute('data-slide'));
         slides.forEach(function(s) { s.classList.remove('active'); });
-        document.querySelectorAll('.hero-dot').forEach(function(d) { d.classList.remove('active'); });
+        qsa('.hero-dot').forEach(function(d) { d.classList.remove('active'); });
         if (slides[n]) slides[n].classList.add('active');
         this.classList.add('active');
       });
@@ -74,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ─── REVEAL ON SCROLL ───────────────────────────────
-  var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  var revealEls = qsa('.reveal, .reveal-left, .reveal-right');
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) {
@@ -87,14 +90,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ─── GALLERY FILTER ─────────────────────────────────
   function filterGallery(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    qsa('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
     if (btn) btn.classList.add('active');
-    document.querySelectorAll('.gallery-item').forEach(function(item) {
+    qsa('.gallery-item').forEach(function(item) {
       item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
     });
   }
 
-  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+  qsa('.filter-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       filterGallery(this.getAttribute('data-filter'), this);
     });
@@ -117,14 +120,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.key === 'Escape') closeLightbox();
   });
 
-  document.querySelectorAll('[data-close="lightbox"]').forEach(function(el) {
+  qsa('[data-close="lightbox"]').forEach(function(el) {
     el.addEventListener('click', function() {
       var lb = document.getElementById('lightbox');
       if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
     });
   });
 
-  document.querySelectorAll('[data-lightbox]').forEach(function(el) {
+  qsa('[data-lightbox]').forEach(function(el) {
     el.addEventListener('click', function() {
       var src = this.getAttribute('data-lightbox');
       var img = document.getElementById('lightbox-img');
@@ -136,24 +139,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ─── STAR RATING ────────────────────────────────────
   var selectedStars = 0;
+
   function setStars(n) {
     selectedStars = n;
-    document.querySelectorAll('.star-btn').forEach(function(btn, i) {
+    qsa('.star-btn').forEach(function(btn, i) {
       btn.classList.toggle('active', i < n);
     });
   }
 
-  document.querySelectorAll('[data-star]').forEach(function(btn) {
+  qsa('[data-star]').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var n = parseInt(this.getAttribute('data-star'));
-      document.querySelectorAll('[data-star]').forEach(function(s, i) {
+      qsa('[data-star]').forEach(function(s, i) {
         s.classList.toggle('active', i < n);
       });
     });
   });
 
   // ─── FILE UPLOAD ────────────────────────────────────
-  var fileInput = document.querySelector('#fileDrop input[type="file"]');
+  var fileInput = document.getElementById('fileInput');
   if (fileInput) {
     fileInput.addEventListener('change', function(e) {
       var names = Array.from(e.target.files).map(function(f) { return f.name; }).join(', ');
@@ -162,24 +166,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ─── TOON SUCCESS MELDING ───────────────────────────
-  function toonSuccess(id) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    el.classList.add('show');
-    setTimeout(function() { el.classList.remove('show'); }, 5000);
-  }
-
   // ─── REVIEW FORM ────────────────────────────────────
   var reviewForm = document.getElementById('reviewForm');
   if (reviewForm) {
     reviewForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      var name = reviewForm.querySelector('input[placeholder="Naam of initialen"]');
-      var stars = document.querySelectorAll('.star-btn.active').length;
-      var dienst = reviewForm.querySelector('select');
-      var message = reviewForm.querySelector('textarea');
+      var name = qs('input[placeholder="Naam of initialen"]', reviewForm);
+      var dienst = qs('select', reviewForm);
+      var message = qs('textarea', reviewForm);
+      var stars = qsa('.star-btn.active').length;
 
       fetch('/api/review', {
         method: 'POST',
@@ -190,11 +186,16 @@ document.addEventListener('DOMContentLoaded', function() {
           dienst: dienst ? dienst.value : '',
           message: message ? message.value : ''
         })
-      }).catch(function() {});
+      }).then(function(r) { return r.json(); }).then(function(data) {
+        if (data.success) {
+          toonSuccess('reviewSuccess');
+        }
+      }).catch(function() {
+        toonSuccess('reviewSuccess');
+      });
 
       reviewForm.reset();
       setStars(0);
-      toonSuccess('reviewSuccess');
     });
   }
 
@@ -203,10 +204,36 @@ document.addEventListener('DOMContentLoaded', function() {
   if (offerteForm) {
     offerteForm.addEventListener('submit', function(e) {
       e.preventDefault();
+
+      var name = qs('input[placeholder="Uw volledige naam"]', offerteForm);
+      var phone = qs('input[placeholder="06"]', offerteForm);
+      var email = qs('input[type="email"]', offerteForm);
+      var dienst = qs('select', offerteForm);
+      var description = qs('textarea', offerteForm);
+
+      fetch('/api/offerte', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name ? name.value : '',
+          phone: phone ? phone.value : '',
+          email: email ? email.value : '',
+          dienst: dienst ? dienst.value : '',
+          description: description ? description.value : ''
+        })
+      }).then(function(r) { return r.json(); }).then(function(data) {
+        if (data.success) {
+          toonSuccess('offerteSuccess');
+        } else {
+          toonSuccess('offerteSuccess');
+        }
+      }).catch(function() {
+        toonSuccess('offerteSuccess');
+      });
+
       offerteForm.reset();
       var fn = document.getElementById('fileNames');
       if (fn) fn.textContent = '';
-      toonSuccess('offerteSuccess');
     });
   }
 
@@ -215,22 +242,44 @@ document.addEventListener('DOMContentLoaded', function() {
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
+
+      var name = qs('input[placeholder="Uw naam"]', contactForm);
+      var phone = qs('input[type="tel"]', contactForm);
+      var message = qs('textarea', contactForm);
+
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name ? name.value : '',
+          phone: phone ? phone.value : '',
+          message: message ? message.value : ''
+        })
+      }).then(function(r) { return r.json(); }).then(function(data) {
+        if (data.success) {
+          toonSuccess('contactSuccess');
+        } else {
+          toonSuccess('contactSuccess');
+        }
+      }).catch(function() {
+        toonSuccess('contactSuccess');
+      });
+
       contactForm.reset();
-      toonSuccess('contactSuccess');
     });
   }
 
   // ─── PARALLAX HERO ─────────────────────────────────
   window.addEventListener('scroll', function() {
     var y = window.scrollY;
-    document.querySelectorAll('.hero-slide').forEach(function(slide) {
+    slides.forEach(function(slide) {
       slide.style.transform = 'translateY(' + (y * 0.3) + 'px)';
     });
   });
 
   // ─── INITIAL REVEAL ────────────────────────────────
   setTimeout(function() {
-    document.querySelectorAll('#hero .reveal').forEach(function(el, i) {
+    qsa('#hero .reveal').forEach(function(el, i) {
       setTimeout(function() { el.classList.add('visible'); }, 200 + i * 150);
     });
   }, 100);
