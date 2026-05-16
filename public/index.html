@@ -20,20 +20,20 @@
 </div>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+<div class="lightbox" id="lightbox" data-close="lightbox">
+  <button class="lightbox-close" data-close="lightbox">✕</button>
   <img id="lightbox-img" src="" alt="">
 </div>
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
-  <a href="#over" onclick="closeMobileMenu()">Over Ons</a>
-  <a href="#diensten" onclick="closeMobileMenu()">Diensten</a>
-  <a href="#projecten" onclick="closeMobileMenu()">Projecten</a>
-  <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
-  <a href="#offerte" onclick="closeMobileMenu()">Offerte</a>
-  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <button class="mobile-close" id="mobileCloseBtn">✕</button>
+  <a href="#over" id="mobileCloseBtn">Over Ons</a>
+  <a href="#diensten" id="mobileCloseBtn">Diensten</a>
+  <a href="#projecten" id="mobileCloseBtn">Projecten</a>
+  <a href="#reviews" id="mobileCloseBtn">Reviews</a>
+  <a href="#offerte" id="mobileCloseBtn">Offerte</a>
+  <a href="#contact" id="mobileCloseBtn">Contact</a>
 </div>
 
 <!-- ─── NAV ─────────────────────────────────────────── -->
@@ -66,7 +66,7 @@
     </div>
     <a href="#offerte" class="nav-cta">Offerte aanvragen</a>
   </div>
-  <div class="nav-hamburger" onclick="openMobileMenu()">
+  <div class="nav-hamburger" id="hamburgerBtn">
     <span></span><span></span><span></span>
   </div>
 </nav>
@@ -75,26 +75,26 @@
 <section id="hero">
   <div class="hero-grain"></div>
   <div class="hero-slides" id="heroSlides">
-    <div class="hero-slide active" style="background-image:url('/img/old-1.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('/img/9.png')"></div>
-    <div class="hero-slide" style="background-image:url('/img/old-2.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('/img/10.png')"></div>
-    <div class="hero-slide" style="background-image:url('/img/old-3.jpg')"></div>
+    <div class="hero-slide active" style="background-image:url('/img/old-1.jpg'"></div>
+    <div class="hero-slide" style="background-image:url('/img/9.png'"></div>
+    <div class="hero-slide" style="background-image:url('/img/old-2.jpg'"></div>
+    <div class="hero-slide" style="background-image:url('/img/10.png'"></div>
+    <div class="hero-slide" style="background-image:url('/img/old-3.jpg'"></div>
   </div>
-    <div class="hero-slide" style="background-image:url('/img/9.png')"></div>
-    <div class="hero-slide" style="background-image:url('/img/old-2.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('/img/10.png')"></div>
-    <div class="hero-slide" style="background-image:url('/img/old-3.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/img/9.png'"></div>
+    <div class="hero-slide" style="background-image:url('/img/old-2.jpg'"></div>
+    <div class="hero-slide" style="background-image:url('/img/10.png'"></div>
+    <div class="hero-slide" style="background-image:url('/img/old-3.jpg'"></div>
   </div>
-    <div class="hero-slide" style="background-image:url('/img/9.png')"></div>
-    <div class="hero-slide" style="background-image:url('/img/old-2.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('/img/10.png')"></div>
-    <div class="hero-slide" style="background-image:url('/img/old-3.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/img/9.png'"></div>
+    <div class="hero-slide" style="background-image:url('/img/old-2.jpg'"></div>
+    <div class="hero-slide" style="background-image:url('/img/10.png'"></div>
+    <div class="hero-slide" style="background-image:url('/img/old-3.jpg'"></div>
   </div>
-    <div class="hero-slide" style="background-image:url('/img/13.png')"></div>
-    <div class="hero-slide" style="background-image:url('/img/14.png')"></div>
-    <div class="hero-slide" style="background-image:url('/img/5.png')"></div>
-    <div class="hero-slide" style="background-image:url('/img/8.png')"></div>
+    <div class="hero-slide" style="background-image:url('/img/13.png'"></div>
+    <div class="hero-slide" style="background-image:url('/img/14.png'"></div>
+    <div class="hero-slide" style="background-image:url('/img/5.png'"></div>
+    <div class="hero-slide" style="background-image:url('/img/8.png'"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -107,11 +107,11 @@
     </div>
   </div>
   <div class="hero-indicators" id="heroIndicators">
-    <button class="hero-dot active" onclick="goSlide(0)"></button>
-    <button class="hero-dot" onclick="goSlide(1)"></button>
-    <button class="hero-dot" onclick="goSlide(2)"></button>
-    <button class="hero-dot" onclick="goSlide(3)"></button>
-    <button class="hero-dot" onclick="goSlide(4)"></button>
+    <button class="hero-dot active" data-slide="0"></button>
+    <button class="hero-dot" data-slide="1"></button>
+    <button class="hero-dot" data-slide="2"></button>
+    <button class="hero-dot" data-slide="3"></button>
+    <button class="hero-dot" data-slide="4"></button>
   </div>
   <div class="hero-scroll">
     <div class="hero-scroll-line"></div>
@@ -277,7 +277,7 @@
       
     </div>
     <div class="gallery-grid" id="gallery">
-      <div class="gallery-item reveal" data-cat="renovatie" onclick="openLightbox('/img/11.png')">
+      <div class="gallery-item reveal" data-cat="renovatie" data-lightbox="'/img/11.png'">
         <img class="gallery-img" src="/img/11.png" alt="Renovatie" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-logo">© Gouden Adelaar</div>
@@ -286,7 +286,7 @@
           <div class="gallery-label-title">Complete verbouwing</div>
         </div>
       </div>
-      <div class="gallery-item reveal reveal-delay-1" data-cat="badkamer" onclick="openLightbox('/img/2.png')">
+      <div class="gallery-item reveal reveal-delay-1" data-cat="badkamer" data-lightbox="'/img/2.png'">
         <img class="gallery-img" src="/img/2.png" alt="Badkamer renovatie" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-logo">© Gouden Adelaar</div>
@@ -295,7 +295,7 @@
           <div class="gallery-label-title">Trap renovatie</div>
         </div>
       </div>
-      <div class="gallery-item reveal reveal-delay-2" data-cat="schilder" onclick="openLightbox('/img/3.png')">
+      <div class="gallery-item reveal reveal-delay-2" data-cat="schilder" data-lightbox="'/img/3.png'">
         <img class="gallery-img" src="/img/3.png" alt="Schilderwerk" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-logo">© Gouden Adelaar</div>
@@ -304,7 +304,7 @@
           <div class="gallery-label-title">Behangen & wandafwerking</div>
         </div>
       </div>
-      <div class="gallery-item reveal" data-cat="vloer" onclick="openLightbox('/img/4.png')">
+      <div class="gallery-item reveal" data-cat="vloer" data-lightbox="'/img/4.png'">
         <img class="gallery-img" src="/img/4.png" alt="PVC vloer" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-logo">© Gouden Adelaar</div>
@@ -313,7 +313,7 @@
           <div class="gallery-label-title">Traprenovatie & behang</div>
         </div>
       </div>
-      <div class="gallery-item reveal reveal-delay-1" data-cat="renovatie" onclick="openLightbox('/img/old-2.jpg')">
+      <div class="gallery-item reveal reveal-delay-1" data-cat="renovatie" data-lightbox="'/img/old-2.jpg'">
         <img class="gallery-img" src="/img/old-2.jpg" alt="Keuken renovatie" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-logo">© Gouden Adelaar</div>
@@ -322,7 +322,7 @@
           <div class="gallery-label-title">Keuken renovatie</div>
         </div>
       </div>
-      <div class="gallery-item reveal" data-cat="badkamer" onclick="openLightbox('/img/6.png')">
+      <div class="gallery-item reveal" data-cat="badkamer" data-lightbox="'/img/6.png'">
         <img class="gallery-img" src="/img/6.png" alt="Badkamer tegels" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-logo">© Gouden Adelaar</div>
@@ -331,7 +331,7 @@
           <div class="gallery-label-title">Laminaat &amp; behang</div>
         </div>
       </div>
-      <div class="gallery-item reveal reveal-delay-1" data-cat="vloer" onclick="openLightbox('/img/7.png')">
+      <div class="gallery-item reveal reveal-delay-1" data-cat="vloer" data-lightbox="'/img/7.png'">
         <img class="gallery-img" src="/img/7.png" alt="Laminaat & PVC" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-logo">© Gouden Adelaar</div>
@@ -340,7 +340,7 @@
           <div class="gallery-label-title">Stucwerk & decoratie</div>
         </div>
       </div>
-      <div class="gallery-item reveal reveal-delay-2" data-cat="badkamer" onclick="openLightbox('/img/old-3.jpg')">
+      <div class="gallery-item reveal reveal-delay-2" data-cat="badkamer" data-lightbox="'/img/old-3.jpg'">
         <img class="gallery-img" src="/img/old-3.jpg" alt="Badkamer renovatie" loading="lazy">
         <div class="gallery-overlay"></div>
         <div class="gallery-logo">© Gouden Adelaar</div>
@@ -437,7 +437,7 @@
       <div class="review-form-wrap reveal-right">
         <div class="form-title">Laat uw review achter</div>
         <div class="form-sub">Uw ervaringen helpen anderen bij hun keuze. Wij stellen uw feedback enorm op prijs!</div>
-        <form id="reviewForm" onsubmit="submitReview(event)">
+        <form id="reviewForm" onsubmit="submitReview(event">
           <div class="form-group">
             <label class="form-label">Uw naam</label>
             <input type="text" class="form-input" placeholder="Naam of initialen" required>
@@ -457,11 +457,11 @@
           <div class="form-group">
             <label class="form-label">Uw beoordeling</label>
             <div class="star-select" id="starSelect">
-              <button type="button" class="star-btn" data-star="1" onclick="setStars(1)">★</button>
-              <button type="button" class="star-btn" data-star="2" onclick="setStars(2)">★</button>
-              <button type="button" class="star-btn" data-star="3" onclick="setStars(3)">★</button>
-              <button type="button" class="star-btn" data-star="4" onclick="setStars(4)">★</button>
-              <button type="button" class="star-btn" data-star="5" onclick="setStars(5)">★</button>
+              <button type="button" class="star-btn" data-star="1" data-star="1">★</button>
+              <button type="button" class="star-btn" data-star="2" data-star="2">★</button>
+              <button type="button" class="star-btn" data-star="3" data-star="3">★</button>
+              <button type="button" class="star-btn" data-star="4" data-star="4">★</button>
+              <button type="button" class="star-btn" data-star="5" data-star="5">★</button>
             </div>
           </div>
           <div class="form-group">
@@ -477,7 +477,7 @@
 </section>
 
 <!-- ─── OFFERTE ───────────────────────────────────────── -->
-<section id="offerte" style="background:var(--dark)">
+<section id="offerte" style="background:var(--dark">
   <div class="container">
     <div class="offerte-inner">
       <div class="reveal" style="text-align:center">
@@ -486,7 +486,7 @@
         <p class="section-sub" style="margin:0 auto;text-align:center">Vul het formulier in en wij nemen binnen 24 uur contact met u op voor een vrijblijvende offerte. U ontvangt altijd een eerlijke en transparante prijsopgave.</p>
       </div>
       <div class="offerte-form reveal">
-        <form id="offerteForm" onsubmit="submitOfferte(event)">
+        <form id="offerteForm" onsubmit="submitOfferte(event">
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Naam *</label>
@@ -534,7 +534,7 @@
           <div class="form-group">
             <label class="form-label">Foto's toevoegen (optioneel)</label>
             <div class="file-drop" id="fileDrop">
-              <input type="file" multiple accept="image/*" onchange="handleFiles(event)" id="fileInput">
+              <input type="file" multiple accept="image/*" onchange="handleFiles(event" id="fileInput">
               <div class="file-drop-icon">📷</div>
               <div class="file-drop-text">Klik of sleep foto's hierheen<br><span style="font-size:.75rem;opacity:.6">JPG, PNG, HEIC – max 10 MB per foto</span></div>
               <div class="file-names" id="fileNames"></div>
@@ -570,7 +570,7 @@
         </div>
         <div class="contact-block">
           <div class="ci-label">E-mail</div>
-          <div class="ci-value" style="font-size:1rem;color:var(--gray)">Wordt binnenkort toegevoegd</div>
+          <div class="ci-value" style="font-size:1rem;color:var(--gray">Wordt binnenkort toegevoegd</div>
         </div>
         <div class="contact-block">
           <div class="ci-label">KvK-nummer</div>
@@ -601,7 +601,7 @@
       </div>
       <div class="contact-form reveal-right">
         <div class="form-title" style="font-family:var(--font-display);font-size:1.5rem;color:var(--cream);margin-bottom:1.5rem">Stuur een bericht</div>
-        <form id="contactForm" onsubmit="submitContact(event)">
+        <form id="contactForm" onsubmit="submitContact(event">
           <div class="form-group">
             <label class="form-label">Naam</label>
             <input type="text" class="form-input" placeholder="Uw naam" required>
@@ -628,7 +628,7 @@
     <div class="footer-brand">
       <div class="fb-logo" style="font-size:2rem;margin-bottom:.75rem">🦅 Gouden <span>Adelaar</span></div>
       <p>Professioneel bouw- en renovatiebedrijf. Vakmanschap, kwaliteit en nette afwerking — dat is onze belofte aan elke klant.</p>
-      <div style="margin-top:1.5rem;font-size:.78rem;color:var(--gray)">
+      <div style="margin-top:1.5rem;font-size:.78rem;color:var(--gray">
         KvK: 42053662<br>Tel: 06 300 02 333
       </div>
     </div>
@@ -683,113 +683,9 @@
   </div>
 </footer>
 
-<script>
-// ─── NAV SCROLL ───────────────────────────────────────────
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>{
-  nav.classList.toggle('scrolled',window.scrollY>60);
-});
 
-// ─── MOBILE MENU ─────────────────────────────────────────
-function openMobileMenu(){document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden'}
-function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow=''}
+    
 
-// ─── HERO SLIDESHOW ──────────────────────────────────────
-let current=0;
-const slides=document.querySelectorAll('.hero-slide');
-const dots=document.querySelectorAll('.hero-dot');
-function goSlide(n){
-  slides[current].classList.remove('active');
-  dots[current].classList.remove('active');
-  current=n;
-  slides[current].classList.add('active');
-  dots[current].classList.add('active');
-}
-setInterval(()=>goSlide((current+1)%slides.length),5000);
-
-// ─── REVEAL ON SCROLL ────────────────────────────────────
-const revealEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
-},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-revealEls.forEach(el=>observer.observe(el));
-
-// ─── GALLERY FILTER ──────────────────────────────────────
-function filterGallery(cat,btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.gallery-item').forEach(item=>{
-    const show=cat==='all'||item.dataset.cat===cat;
-    item.style.display=show?'':'none';
-  });
-}
-
-// ─── LIGHTBOX ────────────────────────────────────────────
-function openLightbox(src){
-  document.getElementById('lightbox-img').src=src;
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow='';
-}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
-
-// ─── STAR RATING ─────────────────────────────────────────
-let selectedStars=0;
-function setStars(n){
-  selectedStars=n;
-  document.querySelectorAll('.star-btn').forEach((btn,i)=>{
-    btn.classList.toggle('active',i<n);
-  });
-}
-
-// ─── FILE UPLOAD ─────────────────────────────────────────
-function handleFiles(e){
-  const names=[...e.target.files].map(f=>f.name).join(', ');
-  document.getElementById('fileNames').textContent=names?`📎 ${names}`:'';
-}
-
-// ─── FORM SUBMISSIONS ────────────────────────────────────
-function submitReview(e){
-  e.preventDefault();
-  const msg=document.getElementById('reviewSuccess');
-  msg.classList.add('show');
-  document.getElementById('reviewForm').reset();
-  setStars(0);
-  setTimeout(()=>msg.classList.remove('show'),5000);
-}
-function submitOfferte(e){
-  e.preventDefault();
-  const msg=document.getElementById('offerteSuccess');
-  msg.classList.add('show');
-  document.getElementById('offerteForm').reset();
-  document.getElementById('fileNames').textContent='';
-}
-function submitContact(e){
-  e.preventDefault();
-  const msg=document.getElementById('contactSuccess');
-  msg.classList.add('show');
-  document.getElementById('contactForm').reset();
-  setTimeout(()=>msg.classList.remove('show'),5000);
-}
-
-// ─── PARALLAX HERO ──────────────────────────────────────
-window.addEventListener('scroll',()=>{
-  const y=window.scrollY;
-  document.querySelectorAll('.hero-slide').forEach(slide=>{
-    slide.style.transform=`translateY(${y*.3}px)`;
-  });
-});
-
-// Trigger initial reveal for hero
-setTimeout(()=>{
-  document.querySelectorAll('#hero .reveal').forEach((el,i)=>{
-    setTimeout(()=>el.classList.add('visible'),200+i*150);
-  });
-},100);
-</script>
-    <script src="/js/main.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>
