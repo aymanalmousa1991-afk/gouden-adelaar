@@ -1,4 +1,5 @@
 const emailService = require('../services/emailService');
+const Review = require('../models/Review');
 
 /**
  * Controller voor alle formulierinzendingen
@@ -132,6 +133,10 @@ class FormController {
         message: req.body.message
       };
 
+      // Opslaan in MongoDB
+      const review = new Review(data);
+      await review.save();
+
       const emailData = emailService.formatReviewEmail(data);
 
       await emailService.sendMail({
@@ -155,3 +160,4 @@ class FormController {
 }
 
 module.exports = new FormController();
+
