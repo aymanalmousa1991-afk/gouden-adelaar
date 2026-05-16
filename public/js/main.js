@@ -254,37 +254,25 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() { el.classList.add('visible'); }, 200 + i * 150);
     });
   }, 100);
-  }, 100);
 
-  // --- REVIEWS LADEN ---------------------------------
-  laadReviews();
-});
-
-function laadReviews() {
+  // ─── REVIEWS LADEN ─────────────────────────────────
   fetch('/api/reviews')
     .then(function(r) { return r.json(); })
     .then(function(data) {
       if (!data.success || !data.reviews || data.reviews.length === 0) return;
-      var lijst = document.getElementById('reviewsLijst');
-      if (!lijst) lijst = document.querySelector('.reviews-list');
+      var lijst = document.querySelector('.reviews-list');
       if (!lijst) return;
-
-      var statische = lijst.querySelectorAll('.review-card');
-      statische.forEach(function(el) {
-        if (el.dataset.dynamic === 'true') el.remove();
-      });
 
       data.reviews.forEach(function(review) {
         var sterren = '';
         for (var s = 0; s < 5; s++) {
-          sterren += s < review.stars ? '?' : '?';
+          sterren += s < review.stars ? '★' : '☆';
         }
         var initialen = (review.name || '??').substring(0, 2).toUpperCase();
-        var dienst = review.dienst ? review.dienst : '';
+        var dienst = review.dienst || '';
 
         var card = document.createElement('div');
         card.className = 'review-card reveal';
-        card.dataset.dynamic = 'true';
         card.innerHTML = [
           '<div class="review-quote">"</div>',
           '<div class="review-stars"><span class="star">' + sterren.split('').join('</span><span class="star">') + '</span></div>',
@@ -293,25 +281,15 @@ function laadReviews() {
             '<div class="review-avatar">' + initialen + '</div>',
             '<div>',
               '<div class="review-name">' + review.name + '</div>',
-              '<div class="review-date">' + dienst + ' � ' + sterren + '</div>',
+              '<div class="review-date">' + dienst + ' · ' + sterren + '</div>',
             '</div>',
           '</div>'
         ].join('');
-
         lijst.appendChild(card);
       });
-
-      setTimeout(function() {
-        var cards = document.querySelectorAll('.review-card[data-dynamic="true"]');
-        cards.forEach(function(el, i) {
-          setTimeout(function() { el.classList.add('visible'); }, 100 * i);
-        });
-      }, 200);
     })
     .catch(function(err) {
       console.warn('Kon reviews niet laden:', err);
     });
-}
+
 });
-
-
