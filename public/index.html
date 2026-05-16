@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gouden Adelaar – Bouw & Renovatie</title>
+<meta name="description" content="Gouden Adelaar – Professioneel bouw- en renovatiebedrijf. Vakmanschap, kwaliteit en nette afwerking. KvK: 42053662">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- FLOATING CTA -->
+<div class="float-cta">
+  <a href="#offerte" class="float-btn">✦ Offerte aanvragen</a>
+  <a href="tel:0630002333" class="float-phone">📞 06 300 02 333</a>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <a href="#over" onclick="closeMobileMenu()">Over Ons</a>
+  <a href="#diensten" onclick="closeMobileMenu()">Diensten</a>
+  <a href="#projecten" onclick="closeMobileMenu()">Projecten</a>
+  <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+  <a href="#offerte" onclick="closeMobileMenu()">Offerte</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- ─── NAV ─────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <img class="nav-logo-icon" src="/img/logo%20(2).png" alt="Gouden Adelaar" style="width:55px;height:55px;object-fit:contain;background:none;border-radius:0;">
+    <div class="nav-logo-text">
+      <span>Gouden Adelaar</span>
+      <span>Bouw &amp; Renovatie</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#over">Over Ons</a>
+    <a href="#diensten">Diensten</a>
+    <a href="#projecten">Projecten</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:1rem">
+    <div class="nav-social">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook" title="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram" title="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg>
+      </a>
+      <a href="https://tiktok.com" target="_blank" aria-label="TikTok" title="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+      </a>
+    </div>
+    <a href="#offerte" class="nav-cta">Offerte aanvragen</a>
+  </div>
+  <div class="nav-hamburger" onclick="openMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-grain"></div>
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('/img/old-1.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/img/9.png')"></div>
+    <div class="hero-slide" style="background-image:url('/img/old-2.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/img/10.png')"></div>
+    <div class="hero-slide" style="background-image:url('/img/old-3.jpg')"></div>
+  </div>
+    <div class="hero-slide" style="background-image:url('/img/9.png')"></div>
+    <div class="hero-slide" style="background-image:url('/img/old-2.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/img/10.png')"></div>
+    <div class="hero-slide" style="background-image:url('/img/old-3.jpg')"></div>
+  </div>
+    <div class="hero-slide" style="background-image:url('/img/9.png')"></div>
+    <div class="hero-slide" style="background-image:url('/img/old-2.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/img/10.png')"></div>
+    <div class="hero-slide" style="background-image:url('/img/old-3.jpg')"></div>
+  </div>
+    <div class="hero-slide" style="background-image:url('/img/13.png')"></div>
+    <div class="hero-slide" style="background-image:url('/img/14.png')"></div>
+    <div class="hero-slide" style="background-image:url('/img/5.png')"></div>
+    <div class="hero-slide" style="background-image:url('/img/8.png')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag reveal"><span>Vakmanschap &amp; Kwaliteit</span></div>
+    <h1 class="hero-h1 reveal reveal-delay-1">Wij <em>renoveren</em><br>uw woning met<br>precisie &amp; stijl</h1>
+    <p class="hero-sub reveal reveal-delay-2">Van badkamer tot complete woningrenovatie — Gouden Adelaar levert nette afwerking die het verschil maakt. Al jarenlang het vertrouwde adres in de regio.</p>
+    <div class="hero-actions reveal reveal-delay-3">
+      <a href="#projecten" class="btn-gold">✦ Bekijk onze projecten</a>
+      <a href="#offerte" class="btn-outline">Offerte aanvragen →</a>
+    </div>
+  </div>
+  <div class="hero-indicators" id="heroIndicators">
+    <button class="hero-dot active" onclick="goSlide(0)"></button>
+    <button class="hero-dot" onclick="goSlide(1)"></button>
+    <button class="hero-dot" onclick="goSlide(2)"></button>
+    <button class="hero-dot" onclick="goSlide(3)"></button>
+    <button class="hero-dot" onclick="goSlide(4)"></button>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- KVK STRIPE -->
+<div class="kvk-stripe">Gouden Adelaar &nbsp;·&nbsp; KvK: 42053662 &nbsp;·&nbsp; Tel: 06 300 02 333 &nbsp;·&nbsp; Erkend vakbedrijf &nbsp;·&nbsp; Volledig verzekerd</div>
+
+<!-- ─── OVER ONS ──────────────────────────────────────── -->
+<section id="over">
+  <div class="container">
+    <div class="section-tag reveal"><span>Over Ons</span></div>
+    <div class="over-grid">
+      <div class="reveal-left" style="position:relative">
+        <div class="over-img-frame"></div>
+        <img class="over-img" src="/img/12.png" alt="Vakman aan het werk" loading="lazy">
+        <div class="over-badge">
+          <span class="num">10+</span>
+          <span class="lab">Jaar ervaring</span>
+        </div>
+      </div>
+      <div class="over-content reveal-right">
+        <div class="section-tag"><span>Ons Verhaal</span></div>
+        <h2 class="section-title">Kwaliteit die <em>zichtbaar</em> is in elk detail</h2>
+        <div class="gold-divider"></div>
+        <p class="over-text">Gouden Adelaar is een gespecialiseerd bouw- en renovatiebedrijf dat staat voor nette afwerking, vakmanschap en betrouwbaarheid. Wij werken aan woningen, appartementen en commerciële ruimten — altijd met oog voor detail en met respect voor uw thuis.</p>
+        <p class="over-text" style="margin-top:1rem">Of het nu gaat om een complete woningrenovatie, een nieuwe badkamer of het leggen van prachtige vloeren: wij leveren maatwerk dat aan uw wensen voldoet en uw verwachtingen overtreft.</p>
+        <div class="over-stats">
+          <div class="stat-card">
+            <div class="stat-num">250+</div>
+            <div class="stat-label">Voltooide projecten</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Tevreden klanten</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Jaar in de branche</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">24u</div>
+            <div class="stat-label">Reactietijd offerte</div>
+          </div>
+        </div>
+        <div class="over-values">
+          <div class="value-item">Vakkundig &amp; gecertificeerd personeel</div>
+          <div class="value-item">Transparante prijzen &amp; eerlijke offertes</div>
+          <div class="value-item">Nette afwerking &amp; schone werkplek</div>
+          <div class="value-item">Volledig verzekerd &amp; KvK geregistreerd</div>
+        </div>
+        <div style="margin-top:2.5rem">
+          <a href="#contact" class="btn-gold">Neem contact op →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DIENSTEN ──────────────────────────────────────── -->
+<section id="diensten">
+  <div class="container">
+    <div class="diensten-intro">
+      <div class="reveal">
+        <div class="section-tag"><span>Wat wij doen</span></div>
+        <h2 class="section-title">Onze <em>diensten</em></h2>
+        <p class="section-sub">Van grondige sloopwerkzaamheden tot luxe afwerking — wij zijn uw totaalpakket voor renovatie en bouw.</p>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <a href="#offerte" class="btn-outline">Offerte aanvragen →</a>
+      </div>
+    </div>
+    <div class="diensten-grid">
+      <div class="dienst-card reveal">
+        <div class="dienst-icon">🏚️</div>
+        <div class="dienst-name">Renovatie</div>
+        <div class="dienst-desc">Complete renovaties van woningen, appartementen en bedrijfsruimten. Van concept tot oplevering.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-1">
+        <div class="dienst-icon">🛋️</div>
+        <div class="dienst-name">Binnenhuis renovatie</div>
+        <div class="dienst-desc">Transformeer uw interieur met stijlvolle renovaties die passen bij uw woonwensen en budget.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-2">
+        <div class="dienst-icon">🔨</div>
+        <div class="dienst-name">Sloopwerk</div>
+        <div class="dienst-desc">Professioneel sloopwerk en afvoer van materialen. Veilig en efficiënt uitgevoerd.</div>
+      </div>
+      <div class="dienst-card reveal">
+        <div class="dienst-icon">🏗️</div>
+        <div class="dienst-name">Opbouw &amp; verbouwing</div>
+        <div class="dienst-desc">Uitbouwen, aanbouwen, indeling wijzigen — wij maken uw verbouwingsplannen werkelijkheid.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-1">
+        <div class="dienst-icon">🪵</div>
+        <div class="dienst-name">Laminaat leggen</div>
+        <div class="dienst-desc">Vakkundig gelegd laminaat met perfecte afwerking. Snelle verwerking met minimale overlast.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-2">
+        <div class="dienst-icon">🏠</div>
+        <div class="dienst-name">PVC vloeren</div>
+        <div class="dienst-desc">Duurzame en waterbestendige PVC vloeren in alle stijlen. Ideaal voor badkamer, keuken en gang.</div>
+      </div>
+      <div class="dienst-card reveal">
+        <div class="dienst-icon">⬛</div>
+        <div class="dienst-name">Vloertegels</div>
+        <div class="dienst-desc">Tegels leggen voor alle ruimtes. Strak en waterpas gelegd voor een perfect eindresultaat.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-1">
+        <div class="dienst-icon">🚿</div>
+        <div class="dienst-name">Badkamer renovatie</div>
+        <div class="dienst-desc">Volledige badkamerrenovaties inclusief sanitair, tegelwerk, afwerking en installatie.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-2">
+        <div class="dienst-icon">🍳</div>
+        <div class="dienst-name">Keuken renovatie</div>
+        <div class="dienst-desc">Nieuwe keuken plaatsen of bestaande keuken renoveren. Inclusief achterwand en afwerking.</div>
+      </div>
+      <div class="dienst-card reveal">
+        <div class="dienst-icon">🪣</div>
+        <div class="dienst-name">Stucadoor werkzaamheden</div>
+        <div class="dienst-desc">Spuitwerk, sierpleister en gladde muren. Een perfecte ondergrond voor elk eindresultaat.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-1">
+        <div class="dienst-icon">🖼️</div>
+        <div class="dienst-name">Behangen</div>
+        <div class="dienst-desc">Professioneel behangen met alle soorten behang. Strak aangebracht, zonder luchtbellen.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-2">
+        <div class="dienst-icon">🎨</div>
+        <div class="dienst-name">Schilderwerk</div>
+        <div class="dienst-desc">Schilderwerk binnen en buiten. Van basisrenovatie tot luxe afwerking in uw gewenste kleur en uitstraling.</div>
+      </div>
+      <div class="dienst-card reveal">
+        <div class="dienst-icon">🧱</div>
+        <div class="dienst-name">Muren afwerken</div>
+        <div class="dienst-desc">Gladde muren, sierpleister of betonlook — wij realiseren iedere look die u voor ogen heeft.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-1">
+        <div class="dienst-icon">🔲</div>
+        <div class="dienst-name">Plafond afwerking</div>
+        <div class="dienst-desc">Systeemplafonds, gestuukte plafonds en spannende plafondoplossingen voor elke ruimte.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-2">
+        <div class="dienst-icon">🔧</div>
+        <div class="dienst-name">Timmerwerk &amp; maatwerk</div>
+        <div class="dienst-desc">Maatwerk timmerwerkzaamheden, onderhoudswerk en renovaties op maat. Vakkundig en netjes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROJECTEN ─────────────────────────────────────── -->
+<section id="projecten">
+  <div class="container">
+    <div class="gallery-header">
+      <div class="reveal">
+        <div class="section-tag"><span>Ons Werk</span></div>
+        <h2 class="section-title">Uitgevoerde <em>projecten</em></h2>
+      </div>
+      
+    </div>
+    <div class="gallery-grid" id="gallery">
+      <div class="gallery-item reveal" data-cat="renovatie" onclick="openLightbox('/img/11.png')">
+        <img class="gallery-img" src="/img/11.png" alt="Renovatie" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-logo">© Gouden Adelaar</div>
+        <div class="gallery-label">
+          <div class="gallery-label-cat">Renovatie</div>
+          <div class="gallery-label-title">Complete verbouwing</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-cat="badkamer" onclick="openLightbox('/img/2.png')">
+        <img class="gallery-img" src="/img/2.png" alt="Badkamer renovatie" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-logo">© Gouden Adelaar</div>
+        <div class="gallery-label">
+          <div class="gallery-label-cat">Traprenovatie</div>
+          <div class="gallery-label-title">Trap renovatie</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-cat="schilder" onclick="openLightbox('/img/3.png')">
+        <img class="gallery-img" src="/img/3.png" alt="Schilderwerk" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-logo">© Gouden Adelaar</div>
+        <div class="gallery-label">
+          <div class="gallery-label-cat">Behangen</div>
+          <div class="gallery-label-title">Behangen & wandafwerking</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal" data-cat="vloer" onclick="openLightbox('/img/4.png')">
+        <img class="gallery-img" src="/img/4.png" alt="PVC vloer" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-logo">© Gouden Adelaar</div>
+        <div class="gallery-label">
+          <div class="gallery-label-cat">Trap & Behang</div>
+          <div class="gallery-label-title">Traprenovatie & behang</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-cat="renovatie" onclick="openLightbox('/img/old-2.jpg')">
+        <img class="gallery-img" src="/img/old-2.jpg" alt="Keuken renovatie" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-logo">© Gouden Adelaar</div>
+        <div class="gallery-label">
+          <div class="gallery-label-cat">Keuken</div>
+          <div class="gallery-label-title">Keuken renovatie</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal" data-cat="badkamer" onclick="openLightbox('/img/6.png')">
+        <img class="gallery-img" src="/img/6.png" alt="Badkamer tegels" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-logo">© Gouden Adelaar</div>
+        <div class="gallery-label">
+          <div class="gallery-label-cat">Vloeren</div>
+          <div class="gallery-label-title">Laminaat &amp; behang</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-cat="vloer" onclick="openLightbox('/img/7.png')">
+        <img class="gallery-img" src="/img/7.png" alt="Laminaat & PVC" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-logo">© Gouden Adelaar</div>
+        <div class="gallery-label">
+          <div class="gallery-label-cat">Stucadoor</div>
+          <div class="gallery-label-title">Stucwerk & decoratie</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-cat="badkamer" onclick="openLightbox('/img/old-3.jpg')">
+        <img class="gallery-img" src="/img/old-3.jpg" alt="Badkamer renovatie" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-logo">© Gouden Adelaar</div>
+        <div class="gallery-label">
+          <div class="gallery-label-cat">Badkamer</div>
+          <div class="gallery-label-title">Badkamer renovatie</div>
+        </div>
+      </div>
+        <div class="gallery-logo">© Gouden Adelaar</div>
+        <div class="gallery-label">
+          <div class="gallery-label-cat">Badkamer</div>
+          <div class="gallery-label-title">Badkamer renovatie</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ───────────────────────────────────────── -->
+
+    <div class="gallery-cta reveal">
+      <a href="/projecten.html" class="gallery-cta-btn">
+        <span>Bekijk alle projecten</span>
+        <span class="gallery-cta-arrow">→</span>
+      </a>
+      <p class="gallery-cta-text">Meer dan 20 uitgevoerde projecten in Rotterdam en omstreken</p>
+    </div>
+<section id="reviews">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag"><span>Klantbeoordelingen</span></div>
+      <h2 class="section-title">Wat onze <em>klanten</em> zeggen</h2>
+      <p class="section-sub">Wij werken voor mensen, niet alleen voor woningen. Hun tevredenheid is onze grootste beloning.</p>
+    </div>
+    <div class="reviews-layout" style="margin-top:3rem">
+      <div class="reviews-list">
+        <div class="review-card reveal">
+          <div class="review-quote">"</div>
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">"Topkwaliteit geleverd! Onze badkamer ziet er prachtig uit en alles werd netjes afgewerkt. Echt vakmanschap waar je trots op kunt zijn."</p>
+          <div class="review-author">
+            <div class="review-avatar">FJ</div>
+            <div>
+              <div class="review-name">Familie Jansen</div>
+              <div class="review-date">Badkamer renovatie · ★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-quote">"</div>
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">"Professioneel bedrijf met goede communicatie en strak schilderwerk. Ze kwamen de afspraken altijd na en werkten netjes. Zeker aan te raden!"</p>
+          <div class="review-author">
+            <div class="review-avatar">MA</div>
+            <div>
+              <div class="review-name">Mohamed A.</div>
+              <div class="review-date">Schilderwerk &amp; renovatie · ★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-quote">"</div>
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">"Nieuwe PVC vloer laten plaatsen en het resultaat is perfect. Ze werken snel en netjes, zonder rommel achter te laten. Aanrader!"</p>
+          <div class="review-author">
+            <div class="review-avatar">SV</div>
+            <div>
+              <div class="review-name">Sandra de Vries</div>
+              <div class="review-date">PVC vloer plaatsing · ★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal reveal-delay-3">
+          <div class="review-quote">"</div>
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">"Heel tevreden over de complete renovatie van onze woning. Vakmensen met oog voor detail die echt meedenken met de klant. Prachtig resultaat!"</p>
+          <div class="review-author">
+            <div class="review-avatar">PN</div>
+            <div>
+              <div class="review-name">Peter en Nadia</div>
+              <div class="review-date">Complete woningrenovatie · ★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="review-form-wrap reveal-right">
+        <div class="form-title">Laat uw review achter</div>
+        <div class="form-sub">Uw ervaringen helpen anderen bij hun keuze. Wij stellen uw feedback enorm op prijs!</div>
+        <form id="reviewForm" onsubmit="submitReview(event)">
+          <div class="form-group">
+            <label class="form-label">Uw naam</label>
+            <input type="text" class="form-input" placeholder="Naam of initialen" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Type werkzaamheden</label>
+            <select class="form-select form-input">
+              <option value="">Selecteer werkzaamheden</option>
+              <option>Badkamer renovatie</option>
+              <option>Keuken renovatie</option>
+              <option>Vloer leggen</option>
+              <option>Schilderwerk</option>
+              <option>Complete renovatie</option>
+              <option>Overig</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Uw beoordeling</label>
+            <div class="star-select" id="starSelect">
+              <button type="button" class="star-btn" data-star="1" onclick="setStars(1)">★</button>
+              <button type="button" class="star-btn" data-star="2" onclick="setStars(2)">★</button>
+              <button type="button" class="star-btn" data-star="3" onclick="setStars(3)">★</button>
+              <button type="button" class="star-btn" data-star="4" onclick="setStars(4)">★</button>
+              <button type="button" class="star-btn" data-star="5" onclick="setStars(5)">★</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Uw bericht</label>
+            <textarea class="form-textarea" placeholder="Vertel ons over uw ervaring..." required></textarea>
+          </div>
+          <button type="submit" class="btn-gold" style="width:100%;justify-content:center;border:none;cursor:pointer">Review plaatsen ✦</button>
+          <div class="success-msg" id="reviewSuccess">✓ Bedankt voor uw review! Wij stellen dit enorm op prijs.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OFFERTE ───────────────────────────────────────── -->
+<section id="offerte" style="background:var(--dark)">
+  <div class="container">
+    <div class="offerte-inner">
+      <div class="reveal" style="text-align:center">
+        <div class="section-tag" style="justify-content:center"><span>Vrijblijvend</span></div>
+        <h2 class="section-title" style="text-align:center">Vraag een <em>gratis offerte</em> aan</h2>
+        <p class="section-sub" style="margin:0 auto;text-align:center">Vul het formulier in en wij nemen binnen 24 uur contact met u op voor een vrijblijvende offerte. U ontvangt altijd een eerlijke en transparante prijsopgave.</p>
+      </div>
+      <div class="offerte-form reveal">
+        <form id="offerteForm" onsubmit="submitOfferte(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Naam *</label>
+              <input type="text" class="form-input" placeholder="Uw volledige naam" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Telefoonnummer *</label>
+              <input type="tel" class="form-input" placeholder="06 – – – – – – – –" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">E-mailadres *</label>
+              <input type="email" class="form-input" placeholder="uw@email.nl" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Type werkzaamheden *</label>
+              <select class="form-select form-input" required>
+                <option value="">Selecteer een dienst</option>
+                <option>Renovatie</option>
+                <option>Binnenhuis renovatie</option>
+                <option>Sloopwerk</option>
+                <option>Opbouw &amp; verbouwing</option>
+                <option>Laminaat leggen</option>
+                <option>PVC vloeren</option>
+                <option>Vloertegels</option>
+                <option>Badkamer renovatie</option>
+                <option>Keuken renovatie</option>
+                <option>Stucadoor werkzaamheden</option>
+                <option>Behangen</option>
+                <option>Schilderwerk</option>
+                <option>Muren afwerken</option>
+                <option>Plafond afwerking</option>
+                <option>Timmerwerk &amp; maatwerk</option>
+                <option>Complete woningrenovatie</option>
+                <option>Onderhoud</option>
+                <option>Meerdere diensten</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Beschrijving van uw project</label>
+            <textarea class="form-textarea" placeholder="Omschrijf uw project zo uitgebreid mogelijk: wat wilt u laten doen, wat is de omvang, wat zijn uw wensen?..." style="min-height:140px"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Foto's toevoegen (optioneel)</label>
+            <div class="file-drop" id="fileDrop">
+              <input type="file" multiple accept="image/*" onchange="handleFiles(event)" id="fileInput">
+              <div class="file-drop-icon">📷</div>
+              <div class="file-drop-text">Klik of sleep foto's hierheen<br><span style="font-size:.75rem;opacity:.6">JPG, PNG, HEIC – max 10 MB per foto</span></div>
+              <div class="file-names" id="fileNames"></div>
+            </div>
+          </div>
+          <div style="margin-top:1rem;display:flex;align-items:flex-start;gap:.75rem">
+            <input type="checkbox" id="privacy" required style="margin-top:4px;accent-color:var(--gold);width:16px;height:16px;flex-shrink:0">
+            <label for="privacy" style="font-size:.82rem;color:rgba(245,240,232,.6);cursor:pointer">Ik ga akkoord met de verwerking van mijn gegevens voor het aanvragen van een offerte door Gouden Adelaar.</label>
+          </div>
+          <div style="margin-top:2rem">
+            <button type="submit" class="btn-gold" style="width:100%;justify-content:center;border:none;cursor:pointer;font-size:.9rem;padding:1rem">✦ Vrijblijvende offerte aanvragen</button>
+          </div>
+          <div class="success-msg" id="offerteSuccess" style="margin-top:1.5rem">✓ Uw aanvraag is ontvangen! Wij nemen binnen 24 uur contact met u op via telefoon of e-mail.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ───────────────────────────────────────── -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag"><span>Bereikbaarheid</span></div>
+      <h2 class="section-title">Neem <em>contact</em> op</h2>
+      <p class="section-sub">Wij staan voor u klaar. Bel ons, stuur een bericht of volg ons op social media voor de laatste projecten.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <div class="contact-block">
+          <div class="ci-label">Telefoon</div>
+          <div class="ci-value"><a href="tel:0630002333">06 300 02 333</a></div>
+        </div>
+        <div class="contact-block">
+          <div class="ci-label">E-mail</div>
+          <div class="ci-value" style="font-size:1rem;color:var(--gray)">Wordt binnenkort toegevoegd</div>
+        </div>
+        <div class="contact-block">
+          <div class="ci-label">KvK-nummer</div>
+          <div class="ci-value" style="font-size:1.1rem">42053662</div>
+        </div>
+        <div class="contact-block">
+          <div class="ci-label">Volg ons</div>
+          <div class="social-row">
+            <a class="social-btn" href="https://facebook.com" target="_blank" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a class="social-btn" href="https://instagram.com" target="_blank" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg>
+            </a>
+            <a class="social-btn" href="https://tiktok.com" target="_blank" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="contact-block" style="margin-top:1rem">
+          <div class="ci-label">Openingstijden</div>
+          <div style="font-size:.9rem;color:rgba(245,240,232,.7);line-height:2">
+            Maandag – Vrijdag: 07:00 – 18:00<br>
+            Zaterdag: 08:00 – 14:00<br>
+            Zondag: Op afspraak
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal-right">
+        <div class="form-title" style="font-family:var(--font-display);font-size:1.5rem;color:var(--cream);margin-bottom:1.5rem">Stuur een bericht</div>
+        <form id="contactForm" onsubmit="submitContact(event)">
+          <div class="form-group">
+            <label class="form-label">Naam</label>
+            <input type="text" class="form-input" placeholder="Uw naam" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Telefoonnummer</label>
+            <input type="tel" class="form-input" placeholder="Uw telefoonnummer">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bericht</label>
+            <textarea class="form-textarea" placeholder="Uw vraag of bericht..." required></textarea>
+          </div>
+          <button type="submit" class="btn-gold" style="width:100%;justify-content:center;border:none;cursor:pointer">Verstuur bericht →</button>
+          <div class="success-msg" id="contactSuccess">✓ Bericht ontvangen! We nemen zo snel mogelijk contact op.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="fb-logo" style="font-size:2rem;margin-bottom:.75rem">🦅 Gouden <span>Adelaar</span></div>
+      <p>Professioneel bouw- en renovatiebedrijf. Vakmanschap, kwaliteit en nette afwerking — dat is onze belofte aan elke klant.</p>
+      <div style="margin-top:1.5rem;font-size:.78rem;color:var(--gray)">
+        KvK: 42053662<br>Tel: 06 300 02 333
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigatie</h4>
+      <ul>
+        <li><a href="#over">Over Ons</a></li>
+        <li><a href="#diensten">Diensten</a></li>
+        <li><a href="#projecten">Projecten</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#offerte">Offerte aanvragen</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Diensten</h4>
+      <ul>
+        <li><a href="#diensten">Renovatie</a></li>
+        <li><a href="#diensten">Badkamer renovatie</a></li>
+        <li><a href="#diensten">Keuken renovatie</a></li>
+        <li><a href="#diensten">Vloeren leggen</a></li>
+        <li><a href="#diensten">Schilderwerk</a></li>
+        <li><a href="#diensten">Stucadoor</a></li>
+        <li><a href="#diensten">Timmerwerk</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Volg ons</h4>
+      <ul>
+        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+        <li><a href="https://tiktok.com" target="_blank">TikTok</a></li>
+      </ul>
+      <div style="margin-top:1.5rem">
+        <a href="#offerte" class="btn-gold" style="font-size:.75rem;padding:.6rem 1.2rem">Offerte aanvragen</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Gouden Adelaar. Alle rechten voorbehouden. KvK: 42053662</p>
+    <div class="footer-social">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </a>
+      <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── NAV SCROLL ───────────────────────────────────────────
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>60);
+});
+
+// ─── MOBILE MENU ─────────────────────────────────────────
+function openMobileMenu(){document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden'}
+function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow=''}
+
+// ─── HERO SLIDESHOW ──────────────────────────────────────
+let current=0;
+const slides=document.querySelectorAll('.hero-slide');
+const dots=document.querySelectorAll('.hero-dot');
+function goSlide(n){
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current=n;
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+}
+setInterval(()=>goSlide((current+1)%slides.length),5000);
+
+// ─── REVEAL ON SCROLL ────────────────────────────────────
+const revealEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach(el=>observer.observe(el));
+
+// ─── GALLERY FILTER ──────────────────────────────────────
+function filterGallery(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item=>{
+    const show=cat==='all'||item.dataset.cat===cat;
+    item.style.display=show?'':'none';
+  });
+}
+
+// ─── LIGHTBOX ────────────────────────────────────────────
+function openLightbox(src){
+  document.getElementById('lightbox-img').src=src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+
+// ─── STAR RATING ─────────────────────────────────────────
+let selectedStars=0;
+function setStars(n){
+  selectedStars=n;
+  document.querySelectorAll('.star-btn').forEach((btn,i)=>{
+    btn.classList.toggle('active',i<n);
+  });
+}
+
+// ─── FILE UPLOAD ─────────────────────────────────────────
+function handleFiles(e){
+  const names=[...e.target.files].map(f=>f.name).join(', ');
+  document.getElementById('fileNames').textContent=names?`📎 ${names}`:'';
+}
+
+// ─── FORM SUBMISSIONS ────────────────────────────────────
+function submitReview(e){
+  e.preventDefault();
+  const msg=document.getElementById('reviewSuccess');
+  msg.classList.add('show');
+  document.getElementById('reviewForm').reset();
+  setStars(0);
+  setTimeout(()=>msg.classList.remove('show'),5000);
+}
+function submitOfferte(e){
+  e.preventDefault();
+  const msg=document.getElementById('offerteSuccess');
+  msg.classList.add('show');
+  document.getElementById('offerteForm').reset();
+  document.getElementById('fileNames').textContent='';
+}
+function submitContact(e){
+  e.preventDefault();
+  const msg=document.getElementById('contactSuccess');
+  msg.classList.add('show');
+  document.getElementById('contactForm').reset();
+  setTimeout(()=>msg.classList.remove('show'),5000);
+}
+
+// ─── PARALLAX HERO ──────────────────────────────────────
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  document.querySelectorAll('.hero-slide').forEach(slide=>{
+    slide.style.transform=`translateY(${y*.3}px)`;
+  });
+});
+
+// Trigger initial reveal for hero
+setTimeout(()=>{
+  document.querySelectorAll('#hero .reveal').forEach((el,i)=>{
+    setTimeout(()=>el.classList.add('visible'),200+i*150);
+  });
+},100);
+</script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

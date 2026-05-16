@@ -1,0 +1,14 @@
+{
+  "name": "gouden-adelaar",
+  "version": "1.0.0",
+  "description": "Gouden Adelaar - Bouw & Renovatie - Complete productie website",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "build:css": "echo 'CSS build step - can add postcss/autoprefixer later'",
+    "setup": "npm install --prefix server"
+  },
+  "keywords": ["bouwen", "renovatie", "gouden-adelaar", "verbouwing"],
+  "license": "MIT"
+}

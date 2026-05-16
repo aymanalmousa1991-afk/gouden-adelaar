@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a1a2e"/>
+      <stop offset="100%" style="stop-color:#000"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  <circle cx="960" cy="400" r="180" fill="rgba(201,168,76,0.08)"/>
+  <text x="960" y="420" text-anchor="middle" font-family="Georgia,serif" font-size="72" fill="#C9A84C" font-weight="bold">🦅</text>
+  <text x="960" y="510" text-anchor="middle" font-family="Georgia,serif" font-size="48" fill="#F5F0E8" font-weight="bold">Gouden Adelaar</text>
+  <text x="960" y="560" text-anchor="middle" font-family="sans-serif" font-size="24" fill="rgba(245,240,232,0.5)">Complete Renovatie</text>
+  <rect x="0" y="1076" width="1920" height="4" fill="#C9A84C" opacity="0.3"/>
+</svg>
