@@ -17,6 +17,9 @@ const database = require('./services/database');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Trust proxy voor rate limiter (belangrijk voor Render)
+app.set('trust proxy', 1);
+
 // ─── Middleware ──────────────────────────────────────────
 
 // Security headers
