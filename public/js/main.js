@@ -23,19 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // ─── MOBILE MENU ─────────────────────────────────────
   var ham = document.getElementById('hamburgerBtn');
   var menu = document.getElementById('mobileMenu');
-  var closeBtn = document.getElementById('mobileCloseBtn');
 
   if (ham && menu) {
     ham.addEventListener('click', function() {
       menu.classList.toggle('open');
       document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
     });
-    if (closeBtn) {
-      closeBtn.addEventListener('click', function() {
-        menu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    }
     qsa('a', menu).forEach(function(link) {
       link.addEventListener('click', function() {
         menu.classList.remove('open');
@@ -88,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(function(el) { observer.observe(el); });
 
-  // ─── GALLERY FILTER ─────────────────────────────────
+  // ─── GALLERY ─────────────────────────────────────────
   function filterGallery(cat, btn) {
     qsa('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
     if (btn) btn.classList.add('active');
@@ -121,10 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   qsa('[data-close="lightbox"]').forEach(function(el) {
-    el.addEventListener('click', function() {
-      var lb = document.getElementById('lightbox');
-      if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
-    });
+    el.addEventListener('click', function() { closeLightbox(); });
   });
 
   qsa('[data-lightbox]').forEach(function(el) {
@@ -138,15 +128,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ─── STAR RATING ────────────────────────────────────
-  var selectedStars = 0;
-
-  function setStars(n) {
-    selectedStars = n;
-    qsa('.star-btn').forEach(function(btn, i) {
-      btn.classList.toggle('active', i < n);
-    });
-  }
-
   qsa('[data-star]').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var n = parseInt(this.getAttribute('data-star'));
@@ -172,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
     reviewForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      var name = qs('input[placeholder="Naam of initialen"]', reviewForm);
+      var name = qs('input', reviewForm);
       var dienst = qs('select', reviewForm);
       var message = qs('textarea', reviewForm);
       var stars = qsa('.star-btn.active').length;
@@ -187,15 +168,13 @@ document.addEventListener('DOMContentLoaded', function() {
           message: message ? message.value : ''
         })
       }).then(function(r) { return r.json(); }).then(function(data) {
-        if (data.success) {
-          toonSuccess('reviewSuccess');
-        }
+        toonSuccess('reviewSuccess');
       }).catch(function() {
         toonSuccess('reviewSuccess');
       });
 
       reviewForm.reset();
-      setStars(0);
+      qsa('.star-btn').forEach(function(b) { b.classList.remove('active'); });
     });
   }
 
@@ -206,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
 
       var name = qs('input[placeholder="Uw volledige naam"]', offerteForm);
-      var phone = qs('input[placeholder="06"]', offerteForm);
+      var phone = qs('input[type="tel"]', offerteForm);
       var email = qs('input[type="email"]', offerteForm);
       var dienst = qs('select', offerteForm);
       var description = qs('textarea', offerteForm);
@@ -222,11 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
           description: description ? description.value : ''
         })
       }).then(function(r) { return r.json(); }).then(function(data) {
-        if (data.success) {
-          toonSuccess('offerteSuccess');
-        } else {
-          toonSuccess('offerteSuccess');
-        }
+        toonSuccess('offerteSuccess');
       }).catch(function() {
         toonSuccess('offerteSuccess');
       });
@@ -256,11 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
           message: message ? message.value : ''
         })
       }).then(function(r) { return r.json(); }).then(function(data) {
-        if (data.success) {
-          toonSuccess('contactSuccess');
-        } else {
-          toonSuccess('contactSuccess');
-        }
+        toonSuccess('contactSuccess');
       }).catch(function() {
         toonSuccess('contactSuccess');
       });
@@ -272,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ─── PARALLAX HERO ─────────────────────────────────
   window.addEventListener('scroll', function() {
     var y = window.scrollY;
-    slides.forEach(function(slide) {
+    qsa('.hero-slide').forEach(function(slide) {
       slide.style.transform = 'translateY(' + (y * 0.3) + 'px)';
     });
   });
