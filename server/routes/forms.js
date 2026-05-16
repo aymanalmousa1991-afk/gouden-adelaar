@@ -9,7 +9,7 @@ const fileService = require('../services/fileService');
  * POST /api/offerte
  * Offerte-aanvraag met optionele bestandsupload
  */
-router.post('/offerte', formLimiter, (req, res, next) => {
+router.post('/offerte', (req, res, next) => {
   const upload = fileService.getUploadMiddleware();
   upload(req, res, (err) => {
     if (err) {
@@ -33,13 +33,13 @@ router.post('/offerte', formLimiter, (req, res, next) => {
  * POST /api/contact
  * Contactformulier
  */
-router.post('/contact', formLimiter, contactValidation, (req, res) => formController.submitContact(req, res));
+router.post('/contact', contactValidation, (req, res) => formController.submitContact(req, res));
 
 /**
  * POST /api/review
  * Review plaatsen
  */
-router.post('/review', reviewValidation, (req, res) => formController.submitReview(req, res));
+router.post('/review', (req, res) => formController.submitReview(req, res));
 
 /**
  * GET /api/health
@@ -54,4 +54,5 @@ router.get('/health', (req, res) => {
 });
 
 module.exports = router;
+
 
