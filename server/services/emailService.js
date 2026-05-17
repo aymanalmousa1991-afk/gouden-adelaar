@@ -4,7 +4,7 @@ class EmailService {
   constructor() {
     this.initialized = false;
     this.useConsoleFallback = false;
-    this.fromEmail = 'goudenadelaarbedrijf@gmail.com';
+    this.fromEmail = process.env.SENDGRID_FROM_EMAIL || process.env.EMAIL_USER || 'goudenadelaarbedrijf@gmail.com';
   }
 
   init() {
@@ -127,3 +127,4 @@ class EmailService {
 }
 
 module.exports = new EmailService();
+
