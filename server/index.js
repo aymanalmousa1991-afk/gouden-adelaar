@@ -125,6 +125,13 @@ app.listen(PORT, '0.0.0.0', () => {
   ╚══════════════════════════════════════════════════╝
   `);
 
+  // Keep-alive: ping eigen server elke 14 min om Render slaapstand te voorkomen
+  const KEEP_ALIVE_URL = 'http://localhost:' + PORT;
+  setInterval(() => {
+    fetch(KEEP_ALIVE_URL + '/api/health')
+      .then(res => { if (!res.ok) throw new Error(); })
+      .catch(() => {});
+  }, 14 * 60 * 1000);
   // Initialiseer email service
   emailService.init();
 
@@ -144,4 +151,5 @@ process.on('SIGTERM', () => {
 });
 
 module.exports = app;
+
 

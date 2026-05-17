@@ -277,9 +277,22 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     })
     .catch(function(err) {
-      console.warn('Reviews laden mislukt:', err);
+      
     });
 
+  // Cookie banner
+  var cb=document.getElementById('cookieBanner');
+  var ca=document.getElementById('cookieAccept');
+  var cn=document.getElementById('cookieNecessary');
+  function verbergBanner(){if(cb)cb.style.display='none'}
+  if(cb&&!localStorage.getItem('cookieConsent')){
+   cb.style.display='block';
+   if(ca)ca.addEventListener('click',function(){localStorage.setItem('cookieConsent','all');verbergBanner()});
+   if(cn)cn.addEventListener('click',function(){localStorage.setItem('cookieConsent','necessary');verbergBanner()})
+  }
 });
+
+
+
 
 
