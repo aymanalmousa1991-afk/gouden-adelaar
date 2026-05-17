@@ -19,23 +19,20 @@ class EmailService {
     const host = process.env.EMAIL_HOST;
     const user = process.env.EMAIL_USER;
     const pass = process.env.EMAIL_PASS;
-    const port = parseInt(process.env.EMAIL_PORT || '465');
+    const port = parseInt(process.env.EMAIL_PORT || '587');
     const secure = process.env.EMAIL_SECURE === 'true' || port === 465;
 
     if (host && user && pass) {
       this.transporter = nodemailer.createTransport({
-        host: host || 'smtp.gmail.com',
-        port: port || 465,
-        secure: true,
+        host: host,
+        port: port,
+        secure: port === 465,
         auth: { user: user, pass: pass },
-        connectionTimeout: 15000,
-        greetingTimeout: 15000,
-        socketTimeout: 15000,
-        debug: true,
-        logger: true
+        connectionTimeout: 10000,
+        greetingTimeout: 10000
       });
       this.initialized = true;
-      console.log('[Email] SMTP geconfigureerd: ' + (host || 'smtp.gmail.com') + ':' + (port || 465));
+      console.log('[Email] SMTP geconfigureerd: ' + host + ':' + port);
     } else {
       console.log('[Email] Geen SMTP credentials gevonden, gebruik console fallback');
       this.useConsoleFallback = true;
@@ -214,6 +211,7 @@ class EmailService {
 }
 
 module.exports = new EmailService();
+
 
 
 
