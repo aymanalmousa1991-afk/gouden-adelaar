@@ -20,7 +20,11 @@ class FormController {
       emailService.sendMail({
         to: process.env.NOTIFICATION_EMAIL || process.env.EMAIL_USER || 'goudenadelaarbedrijf@gmail.com',
         ...emailData
-      }).catch(function() {});
+      }).then(function() {
+        console.log('[Offerte] Email notificatie verzonden');
+      }).catch(function(err) {
+        console.error('[Offerte] Email fout:', err.message);
+      });
 
       return res.json({ success: true, message: 'Uw offerte-aanvraag is ontvangen!' });
     } catch (error) {
@@ -84,3 +88,4 @@ class FormController {
 }
 
 module.exports = new FormController();
+
