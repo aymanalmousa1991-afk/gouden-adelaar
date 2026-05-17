@@ -46,8 +46,7 @@ const offerteValidation = [
     .isLength({ max: 5000 }).withMessage('Beschrijving mag maximaal 5000 tekens bevatten')
     .customSanitizer(value => sanitize(value)),
 
-  body('privacy')
-    .isIn(['true', true, 'on', '1']).withMessage('U moet akkoord gaan met de privacyverklaring'),
+  // body('privacy').optional().isIn(['true', true, 'on', '1']).withMessage('U moet akkoord gaan met de privacyverklaring'),
 
   (req, res, next) => {
     const errors = validationResult(req);
@@ -151,6 +150,7 @@ module.exports = {
   contactValidation,
   reviewValidation
 };
+
 
 
 
