@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  // ─── HELPERS ─────────────────────────────────────────
   function qs(sel, parent) { return (parent || document).querySelector(sel); }
   function qsa(sel, parent) { return Array.from((parent || document).querySelectorAll(sel)); }
 
@@ -12,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // ─── NAV SCROLL ──────────────────────────────────────
   var nav = document.getElementById('nav');
   if (nav) {
     window.addEventListener('scroll', function() {
@@ -20,10 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ─── MOBILE MENU ─────────────────────────────────────
   var ham = document.getElementById('hamburgerBtn');
   var menu = document.getElementById('mobileMenu');
-
   if (ham && menu) {
     ham.addEventListener('click', function() {
       menu.classList.toggle('open');
@@ -43,11 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ─── HERO SLIDESHOW ─────────────────────────────────
   var current = 0;
   var slides = qsa('.hero-slide');
   var dots = qsa('.hero-dot');
-
   if (slides.length > 0) {
     function goSlide(n) {
       if (!slides[current]) return;
@@ -69,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ─── REVEAL ON SCROLL ───────────────────────────────
   var revealEls = qsa('.reveal, .reveal-left, .reveal-right');
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
@@ -81,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(function(el) { observer.observe(el); });
 
-  // ─── GALLERY ─────────────────────────────────────────
   function filterGallery(cat, btn) {
     qsa('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
     if (btn) btn.classList.add('active');
@@ -89,34 +81,18 @@ document.addEventListener('DOMContentLoaded', function() {
       item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
     });
   }
-
   qsa('.filter-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       filterGallery(this.getAttribute('data-filter'), this);
     });
   });
 
-  // ─── LIGHTBOX ───────────────────────────────────────
-  function openLightbox(src) {
-    var img = document.getElementById('lightbox-img');
-    var lb = document.getElementById('lightbox');
-    if (img) img.src = src;
-    if (lb) { lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  }
-
-  function closeLightbox() {
-    var lb = document.getElementById('lightbox');
-    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
-  }
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeLightbox();
-  });
-
   qsa('[data-close="lightbox"]').forEach(function(el) {
-    el.addEventListener('click', function() { closeLightbox(); });
+    el.addEventListener('click', function() {
+      var lb = document.getElementById('lightbox');
+      if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    });
   });
-
   qsa('[data-lightbox]').forEach(function(el) {
     el.addEventListener('click', function() {
       var src = this.getAttribute('data-lightbox');
@@ -126,8 +102,13 @@ document.addEventListener('DOMContentLoaded', function() {
       if (lb) { lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
     });
   });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var lb = document.getElementById('lightbox');
+      if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    }
+  });
 
-  // ─── STAR RATING ────────────────────────────────────
   qsa('[data-star]').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var n = parseInt(this.getAttribute('data-star'));
@@ -137,27 +118,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ─── FILE UPLOAD ────────────────────────────────────
   var fileInput = document.getElementById('fileInput');
   if (fileInput) {
     fileInput.addEventListener('change', function(e) {
       var names = Array.from(e.target.files).map(function(f) { return f.name; }).join(', ');
       var el = document.getElementById('fileNames');
-      if (el) el.textContent = names ? '📎 ' + names : '';
+      if (el) el.textContent = names ? '[bijlagen] ' + names : '';
     });
   }
 
-  // ─── REVIEW FORM ────────────────────────────────────
   var reviewForm = document.getElementById('reviewForm');
   if (reviewForm) {
     reviewForm.addEventListener('submit', function(e) {
       e.preventDefault();
-
       var name = qs('input', reviewForm);
       var dienst = qs('select', reviewForm);
       var message = qs('textarea', reviewForm);
       var stars = qsa('.star-btn.active').length;
-
       fetch('https://gouden-adelaar.onrender.com/api/review', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -172,24 +149,20 @@ document.addEventListener('DOMContentLoaded', function() {
       }).catch(function() {
         toonSuccess('reviewSuccess');
       });
-
       reviewForm.reset();
       qsa('.star-btn').forEach(function(b) { b.classList.remove('active'); });
     });
   }
 
-  // ─── OFFERTE FORM ───────────────────────────────────
   var offerteForm = document.getElementById('offerteForm');
   if (offerteForm) {
     offerteForm.addEventListener('submit', function(e) {
       e.preventDefault();
-
       var name = qs('input[placeholder="Uw volledige naam"]', offerteForm);
       var phone = qs('input[type="tel"]', offerteForm);
       var email = qs('input[type="email"]', offerteForm);
       var dienst = qs('select', offerteForm);
       var description = qs('textarea', offerteForm);
-
       fetch('https://gouden-adelaar.onrender.com/api/offerte', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -205,23 +178,19 @@ document.addEventListener('DOMContentLoaded', function() {
       }).catch(function() {
         toonSuccess('offerteSuccess');
       });
-
       offerteForm.reset();
       var fn = document.getElementById('fileNames');
       if (fn) fn.textContent = '';
     });
   }
 
-  // ─── CONTACT FORM ───────────────────────────────────
   var contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-
       var name = qs('input[placeholder="Uw naam"]', contactForm);
       var phone = qs('input[type="tel"]', contactForm);
       var message = qs('textarea', contactForm);
-
       fetch('https://gouden-adelaar.onrender.com/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -235,12 +204,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }).catch(function() {
         toonSuccess('contactSuccess');
       });
-
       contactForm.reset();
     });
   }
 
-  // ─── PARALLAX HERO ─────────────────────────────────
   window.addEventListener('scroll', function() {
     var y = window.scrollY;
     qsa('.hero-slide').forEach(function(slide) {
@@ -248,15 +215,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ─── INITIAL REVEAL ────────────────────────────────
   setTimeout(function() {
     qsa('#hero .reveal').forEach(function(el, i) {
       setTimeout(function() { el.classList.add('visible'); }, 200 + i * 150);
     });
   }, 100);
 
-  // ─── REVIEWS LADEN ─────────────────────────────────
-  fetch('https://gouden-adelaar.onrender.com/api/reviews')
+  // REVIEWS LADEN
+  var BASE = 'https://gouden-adelaar.onrender.com';
+
+  fetch(BASE + '/api/reviews')
     .then(function(r) { return r.json(); })
     .then(function(data) {
       if (!data.success || !data.reviews || data.reviews.length === 0) return;
@@ -266,34 +234,30 @@ document.addEventListener('DOMContentLoaded', function() {
       data.reviews.forEach(function(review) {
         var sterren = '';
         for (var s = 0; s < 5; s++) {
-          sterren += s < review.stars ? '★' : '☆';
+          sterren += s < review.stars ? '\u2605' : '\u2606';
         }
         var initialen = (review.name || '??').substring(0, 2).toUpperCase();
-        var dienst = review.dienst || '';
+        var dienstNaam = review.dienst || '';
 
         var card = document.createElement('div');
-        card.className = 'review-card reveal';
-        card.innerHTML = [
-          '<div class="review-quote">"</div>',
-          '<div class="review-stars"><span class="star">' + sterren.split('').join('</span><span class="star">') + '</span></div>',
-          '<p class="review-text">"' + review.message + '"</p>',
-          '<div class="review-author">',
-            '<div class="review-avatar">' + initialen + '</div>',
-            '<div>',
-              '<div class="review-name">' + review.name + '</div>',
-              '<div class="review-date">' + dienst + ' · ' + sterren + '</div>',
-            '</div>',
-          '</div>'
-        ].join('');
+        card.className = 'review-card reveal visible';
+        card.style.marginBottom = '1.5rem';
+        card.innerHTML =
+          '<div class="review-quote">"</div>' +
+          '<div class="review-stars"><span class="star">' + sterren.split('').join('</span><span class="star">') + '</span></div>' +
+          '<p class="review-text">"' + review.message + '"</p>' +
+          '<div class="review-author">' +
+            '<div class="review-avatar">' + initialen + '</div>' +
+            '<div>' +
+              '<div class="review-name">' + review.name + '</div>' +
+              '<div class="review-date">' + dienstNaam + ' \u00b7 ' + sterren + '</div>' +
+            '</div>' +
+          '</div>';
         lijst.appendChild(card);
       });
     })
     .catch(function(err) {
-      console.warn('Kon reviews niet laden:', err);
+      console.warn('Reviews laden mislukt:', err);
     });
 
 });
-
-
-
-
