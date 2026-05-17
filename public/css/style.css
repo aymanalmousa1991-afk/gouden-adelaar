@@ -411,3 +411,10 @@ input,textarea,select{font-size:16px}
  .reveal,.reveal-left,.reveal-right,.mobile-menu,.hero-slide{transition:none!important;opacity:1!important;transform:none!important}
  .hero-h1,.hero-sub,.hero-content,.dienst-card{opacity:1!important;transform:none!important}
 }
+/* --- COMPACT MOBILE MENU (zonder Over Ons) --- */
+.mobile-menu-compact{gap:1.8rem!important}
+.mobile-menu-compact a{font-size:1.6rem!important}
+@media(max-width:375px){
+ .mobile-menu-compact a{font-size:1.3rem!important}
+ .mobile-menu-compact{gap:1.2rem!important}
+}
