@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Review Test</title></head>
+<body style="background:#111;color:white;font-family:Arial;padding:2rem">
+<h1>Review Test</h1>
+<div id="output"></div>
+<script>
+fetch('https://gouden-adelaar.onrender.com/api/reviews')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var out = document.getElementById('output');
+    out.innerHTML = '<pre style="background:#222;padding:1rem;border-radius:4px">' + JSON.stringify(data, null, 2) + '</pre>';
+  })
+  .catch(function(err) {
+    var out = document.getElementById('output');
+    out.innerHTML = '<div style="background:#500;padding:1rem;border-radius:4px">Fout: ' + err.message + '</div>';
+  });
+</script>
+</body>
+</html>
