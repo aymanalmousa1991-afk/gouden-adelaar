@@ -32,16 +32,16 @@ app.use(helmet({
       scriptSrcAttr: ["'unsafe-inline'"],
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com", "https://fonts.googleapis.com"],
-      connectSrc: ["'self'", "https://api.emailjs.com"]
+      connectSrc: ["'self'", "https://api.emailjs.com", "https://gouden-adelaar.nl", "https://www.gouden-adelaar.nl", "https://gouden-adelaar.onrender.com"]
     }
   },
   crossOriginEmbedderPolicy: false
 }));
 
-// CORS - sta verzoeken toe van dezelfde origin
+// CORS - sta verzoeken toe van frontend domeinen
 app.use(cors({
   origin: process.env.NODE_ENV === 'production'
-    ? ['https://gouden-adelaar.nl', `http://localhost:${PORT}`]
+    ? ['https://gouden-adelaar.nl', 'https://www.gouden-adelaar.nl', `http://localhost:${PORT}`]
     : '*',
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type']
