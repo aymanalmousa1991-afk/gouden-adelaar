@@ -20,22 +20,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var ham = document.getElementById('hamburgerBtn');
   var menu = document.getElementById('mobileMenu');
+  function sluitMenu() {
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function openMenu() {
+    menu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
   if (ham && menu) {
-    ham.addEventListener('click', function() {
-      menu.classList.toggle('open');
-      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+    ham.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (menu.classList.contains('open')) {
+        sluitMenu();
+      } else {
+        openMenu();
+      }
+    });
+    ham.addEventListener('touchstart', function(e) {
+      e.stopPropagation();
+      if (menu.classList.contains('open')) {
+        sluitMenu();
+      } else {
+        openMenu();
+      }
     });
     qsa('a', menu).forEach(function(link) {
-      link.addEventListener('click', function() {
-        menu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', function() { sluitMenu(); });
+      link.addEventListener('touchstart', function() { sluitMenu(); });
     });
     menu.addEventListener('click', function(e) {
-      if (e.target === this) {
-        menu.classList.remove('open');
-        document.body.style.overflow = '';
-      }
+      if (e.target === this) { sluitMenu(); }
+    });
+    menu.addEventListener('touchstart', function(e) {
+      if (e.target === this) { sluitMenu(); }
     });
   }
 
@@ -189,6 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       var name = qs('input[placeholder="Uw naam"]', contactForm);
+      var email = qs('input[type="email"]', contactForm);
       var phone = qs('input[type="tel"]', contactForm);
       var message = qs('textarea', contactForm);
       fetch('https://gouden-adelaar.onrender.com/api/contact', {
@@ -196,6 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: name ? name.value : '',
+          email: email ? email.value : '',
           phone: phone ? phone.value : '',
           message: message ? message.value : ''
         })
@@ -261,3 +281,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
+
