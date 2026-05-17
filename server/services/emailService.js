@@ -16,11 +16,10 @@ class EmailService {
    * Initialiseer de email transporter
    */
   init() {
-    // Kijk of SMTP credentials aanwezig zijn
     const host = process.env.EMAIL_HOST;
     const user = process.env.EMAIL_USER;
     const pass = process.env.EMAIL_PASS;
-    const port = parseInt(process.env.EMAIL_PORT || '465');
+    const port = parseInt(process.env.EMAIL_PORT || '587');
     const secure = process.env.EMAIL_SECURE === 'true';
 
     if (host && user && pass) {
@@ -28,19 +27,12 @@ class EmailService {
         host,
         port,
         secure,
-        auth: { user, pass }
+        auth: { user, pass },
+        connectionTimeout: 8000,
+        greetingTimeout: 8000
       });
-
-      // Verifieer de verbinding (async)
-      this.transporter.verify()
-        .then(() => {
-          this.initialized = true;
-          console.log('[Email] SMTP verbinding succesvol');
-        })
-        .catch(err => {
-          console.warn('[Email] SMTP verificatie mislukt, gebruik console fallback:', err.message);
-          this.useConsoleFallback = true;
-        });
+      this.initialized = true;
+      console.log('[Email] SMTP geconfigureerd: ' + host + ':' + port);
     } else {
       console.log('[Email] Geen SMTP credentials gevonden, gebruik console fallback');
       this.useConsoleFallback = true;
@@ -57,12 +49,17 @@ class EmailService {
    * @param {Array} [options.attachments] - Bijlagen
    */
   async sendMail({ to, subject, html, text, attachments = [] }) {
-    if (this.useConsoleFallback) {
-      this._consoleLog({ to, subject, html, text, attachments });
-      return { success: true, fallback: true };
-    }
-
     try {
+      if (this.useConsoleFallback) {
+        this._consoleLog({ to, subject, html, text, attachments });
+        return { success: true, fallback: true };
+      }
+
+      if (!this.transporter) {
+        this._consoleLog({ to, subject, html, text, attachments });
+        return { success: true, fallback: true };
+      }
+
       const info = await this.transporter.sendMail({
         from: `"Gouden Adelaar" <${process.env.EMAIL_USER}>`,
         to,
@@ -75,9 +72,8 @@ class EmailService {
       console.log('[Email] Verzonden:', info.messageId);
       return { success: true, messageId: info.messageId };
     } catch (error) {
-      console.error('[Email] Fout bij verzenden:', error.message);
-      // Fallback: log naar console
-      this._consoleLog({ to, subject, html, text, attachments });
+      try { console.error('[Email] Fout bij verzenden:', error.message); } catch(e) {}
+      try { this._consoleLog({ to, subject, html, text, attachments }); } catch(e) {}
       return { success: true, fallback: true };
     }
   }
@@ -215,3 +211,5 @@ class EmailService {
 }
 
 module.exports = new EmailService();
+
+
