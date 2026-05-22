@@ -1,19 +1,17 @@
 FROM node:18-slim
 
-WORKDIR /app
+WORKDIR /app/server
 
-# Kopieer package.json bestanden
-COPY package*.json ./
-COPY server/package*.json ./server/
-
-# Installeer dependencies
+COPY server/package*.json ./
 RUN npm install
-RUN cd server && npm install
 
-# Kopieer de rest van de bestanden
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+
 COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["node", "server/index.js"]
 
