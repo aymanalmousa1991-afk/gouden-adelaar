@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var dienst = qs('select', reviewForm);
       var message = qs('textarea', reviewForm);
       var stars = qsa('.star-btn.active').length;
-      fetch('https://gouden-adelaar.onrender.com/api/review', {
+      fetch('https://gouden-adelaar-api.fly.dev/api/review', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var email = qs('input[type="email"]', offerteForm);
       var dienst = qs('select', offerteForm);
       var description = qs('textarea', offerteForm);
-      fetch('https://gouden-adelaar.onrender.com/api/offerte', {
+      fetch('https://gouden-adelaar-api.fly.dev/api/offerte', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var email = qs('input[type="email"]', contactForm);
       var phone = qs('input[type="tel"]', contactForm);
       var message = qs('textarea', contactForm);
-      fetch('https://gouden-adelaar.onrender.com/api/contact', {
+      fetch('https://gouden-adelaar-api.fly.dev/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 100);
 
   // REVIEWS LADEN
-  var BASE = 'https://gouden-adelaar.onrender.com';
+  var BASE = 'https://gouden-adelaar-api.fly.dev';
 
   fetch(BASE + '/api/reviews')
     .then(function(r) { return r.json(); })
