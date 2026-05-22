@@ -1,0 +1,12 @@
+# fly.toml voor Gouden Adelaar Backend
+app = "gouden-adelaar-api"
+primary_region = "fra"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = false
+  min_machines_running = 1
+
+# Geen add-ons (geen Postgres, geen Tigris — we gebruiken MongoDB Atlas)
