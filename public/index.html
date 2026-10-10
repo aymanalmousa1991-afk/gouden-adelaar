@@ -13,19 +13,20 @@
 <meta property="og:description" content="Gouden Adelaar: uw betrouwbare partner voor bouw en renovatie, gevestigd in Amsterdam en actief in heel Nederland. Badkamer, keuken, vloeren, schilderwerk en complete woningrenovatie. Vrijblijvende offerte!">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gouden-adelaar.nl">
-<meta property="og:image" content="https://gouden-adelaar.nl/img/hero-1.svg">
+<meta property="og:image" content="https://gouden-adelaar.nl/img/hero/hero-1.jpg">
 <meta property="og:locale" content="nl_NL">
 <meta property="og:site_name" content="Gouden Adelaar">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Gouden Adelaar - Bouw &amp; Renovatie">
 <meta name="twitter:description" content="Uw betrouwbare partner voor bouw- en renovatieprojecten, gevestigd in Amsterdam en actief in heel Nederland. Vrijblijvende offerte!">
-<meta name="twitter:image" content="https://gouden-adelaar.nl/img/hero-1.svg">
+<meta name="twitter:image" content="https://gouden-adelaar.nl/img/hero/hero-1.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css">
-<link rel="preload" href="/css/style.css" as="style">
-<link rel="apple-touch-icon" href="/favicon/favicon.svg">
+<link rel="stylesheet" href="/css/style.css?v=3">
+<link rel="preload" href="/css/style.css?v=3" as="style">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32.png">
+<link rel="apple-touch-icon" href="/img/logo-180.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,12 +41,16 @@
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "08:00", "closes": "18:00" }
   ],
   "priceRange": "��",
-  "image": "https://gouden-adelaar.nl/img/hero-1.svg",
+  "image": "https://gouden-adelaar.nl/img/hero/hero-1.jpg",
+  "logo": "https://gouden-adelaar.nl/img/logo.png",
   "sameAs": [ "https://www.facebook.com/profile.php?id=61589633712579", "https://www.instagram.com/goudenadelaarbedrijf/" ]
 }
 </script>
 </head>
 <body>
+<a href="#over" class="skip-link">Naar inhoud</a>
+<div class="preloader" id="preloader" aria-hidden="true"><img src="/img/logo-180.png" alt=""></div>
+<div class="scroll-progress" aria-hidden="true"></div>
     <!-- Cookie Banner -->
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie-instellingen">
     <div class="cookie-content">
@@ -60,14 +65,14 @@
 </div>
 
 <!-- FLOATING CTA -->
-<div class="float-cta">
+<div class="float-cta is-hidden">
   <a href="#offerte" class="float-btn">✦ Offerte aanvragen</a>
-  <a href="tel:0630002333" class="float-phone">📞 06 300 02 333</a>
+  <a href="tel:0630002333" class="float-phone"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg> 06 300 02 333</a>
 </div>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" data-close="lightbox">
-  <button class="lightbox-close" data-close="lightbox">✕</button>
+  <button class="lightbox-close" data-close="lightbox" aria-label="Sluiten">✕</button>
   <img id="lightbox-img" src="" alt="">
 </div>
 
@@ -85,7 +90,7 @@
 <!-- ─── NAV ─────────────────────────────────────────── -->
 <nav id="nav">
   <a href="#hero" class="nav-logo">
-    <img class="nav-logo-icon" src="/img/logo%20(2).png" alt="Gouden Adelaar" style="width:55px;height:55px;object-fit:contain;background:none;border-radius:0;">
+    <img class="nav-logo-icon" src="/img/logo-180.png" alt="Gouden Adelaar" style="width:55px;height:55px;object-fit:contain;background:none;border-radius:50%;">
     <div class="nav-logo-text">
       <span>Gouden Adelaar</span>
       <span>Bouw &amp; Renovatie</span>
@@ -112,7 +117,7 @@
     </div>
     <a href="#offerte" class="nav-cta">Offerte aanvragen</a>
   </div>
-  <div class="nav-hamburger" id="hamburgerBtn">
+  <div class="nav-hamburger" id="hamburgerBtn" role="button" tabindex="0" aria-label="Menu openen">
     <span></span><span></span><span></span>
   </div>
 </nav>
@@ -121,31 +126,16 @@
 <section id="hero">
   <div class="hero-grain"></div>
   <div class="hero-slides" id="heroSlides">
-    <div class="hero-slide active" style="background-image:url('/img/old-1.jpg'" fetchpriority="high"></div>
-    <div class="hero-slide" style="background-image:url('/img/9.png'"></div>
-    <div class="hero-slide" style="background-image:url('/img/old-2.jpg'"></div>
-    <div class="hero-slide" style="background-image:url('/img/10.png'"></div>
-    <div class="hero-slide" style="background-image:url('/img/old-3.jpg'"></div>
-  </div>
-    <div class="hero-slide" style="background-image:url('/img/9.png'"></div>
-    <div class="hero-slide" style="background-image:url('/img/old-2.jpg'"></div>
-    <div class="hero-slide" style="background-image:url('/img/10.png'"></div>
-    <div class="hero-slide" style="background-image:url('/img/old-3.jpg'"></div>
-  </div>
-    <div class="hero-slide" style="background-image:url('/img/9.png'"></div>
-    <div class="hero-slide" style="background-image:url('/img/old-2.jpg'"></div>
-    <div class="hero-slide" style="background-image:url('/img/10.png'"></div>
-    <div class="hero-slide" style="background-image:url('/img/old-3.jpg'"></div>
-  </div>
-    <div class="hero-slide" style="background-image:url('/img/13.png'"></div>
-    <div class="hero-slide" style="background-image:url('/img/14.png'"></div>
-    <div class="hero-slide" style="background-image:url('/img/5.png'"></div>
-    <div class="hero-slide" style="background-image:url('/img/8.png'"></div>
+    <div class="hero-slide active" style="background-image:url('/img/hero/hero-1.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/img/hero/hero-2.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/img/hero/hero-3.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/img/hero/hero-4.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('/img/hero/hero-5.jpg')"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-tag reveal"><span>Vakmanschap &amp; Kwaliteit</span></div>
-    <h1 class="hero-h1 reveal reveal-delay-1">Wij <em>renoveren</em><br>uw woning met<br>precisie &amp; stijl</h1>
+    <h1 class="hero-h1 reveal reveal-delay-1"><span class="ln"><span>Wij <em>renoveren</em></span></span> <span class="ln"><span>uw woning met</span></span> <span class="ln"><span>precisie &amp; stijl</span></span></h1>
     <p class="hero-sub reveal reveal-delay-2">Van badkamer tot complete woningrenovatie — Gouden Adelaar levert nette afwerking die het verschil maakt. Gevestigd in Amsterdam en al jarenlang actief door heel Nederland.</p>
     <div class="hero-actions reveal reveal-delay-3">
       <a href="#projecten" class="btn-gold">✦ Bekijk onze projecten</a>
@@ -153,11 +143,11 @@
     </div>
   </div>
   <div class="hero-indicators" id="heroIndicators">
-    <button class="hero-dot active" data-slide="0"></button>
-    <button class="hero-dot" data-slide="1"></button>
-    <button class="hero-dot" data-slide="2"></button>
-    <button class="hero-dot" data-slide="3"></button>
-    <button class="hero-dot" data-slide="4"></button>
+    <button class="hero-dot active" data-slide="0" aria-label="Foto 1"></button>
+    <button class="hero-dot" data-slide="1" aria-label="Foto 2"></button>
+    <button class="hero-dot" data-slide="2" aria-label="Foto 3"></button>
+    <button class="hero-dot" data-slide="3" aria-label="Foto 4"></button>
+    <button class="hero-dot" data-slide="4" aria-label="Foto 5"></button>
   </div>
   <div class="hero-scroll">
     <div class="hero-scroll-line"></div>
@@ -168,6 +158,9 @@
 <!-- KVK STRIPE -->
 <div class="kvk-stripe">Gouden Adelaar &nbsp;·&nbsp; KvK: 42053662 &nbsp;·&nbsp; Tel: 06 300 02 333 &nbsp;·&nbsp; Erkend vakbedrijf &nbsp;·&nbsp; Volledig verzekerd</div>
 
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Badkamer renovatie</span><span>Keuken renovatie</span><span>Tegelwerk</span><span>Visgraatvloeren</span><span>Traprenovatie</span><span>Sierpleister &amp; betonlook</span><span>Wandpanelen</span><span>LED-plafonds</span><span>Schilderwerk</span><span>Complete woningrenovatie</span><span>Badkamer renovatie</span><span>Keuken renovatie</span><span>Tegelwerk</span><span>Visgraatvloeren</span><span>Traprenovatie</span><span>Sierpleister &amp; betonlook</span><span>Wandpanelen</span><span>LED-plafonds</span><span>Schilderwerk</span><span>Complete woningrenovatie</span></div></div>
+
 <!-- ─── OVER ONS ──────────────────────────────────────── -->
 <section id="over">
   <div class="container">
@@ -175,9 +168,9 @@
     <div class="over-grid">
       <div class="reveal-left" style="position:relative">
         <div class="over-img-frame"></div>
-        <img class="over-img" src="/img/12.png" alt="Vakman aan het werk" loading="lazy">
+        <img class="over-img" src="/img/projecten/tv-wand-sierpleister.jpg" alt="Woonkamer met sierpleister en TV-wand door Gouden Adelaar" loading="lazy">
         <div class="over-badge">
-          <span class="num">10+</span>
+          <span class="num" data-count="10" data-suffix="+">10+</span>
           <span class="lab">Jaar ervaring</span>
         </div>
       </div>
@@ -189,19 +182,19 @@
         <p class="over-text" style="margin-top:1rem">Of het nu gaat om een complete woningrenovatie, een nieuwe badkamer of het leggen van prachtige vloeren: wij leveren maatwerk dat aan uw wensen voldoet en uw verwachtingen overtreft.</p>
         <div class="over-stats">
           <div class="stat-card">
-            <div class="stat-num">250+</div>
+            <div class="stat-num" data-count="250" data-suffix="+">250+</div>
             <div class="stat-label">Voltooide projecten</div>
           </div>
           <div class="stat-card">
-            <div class="stat-num">100%</div>
+            <div class="stat-num" data-count="100" data-suffix="%">100%</div>
             <div class="stat-label">Tevreden klanten</div>
           </div>
           <div class="stat-card">
-            <div class="stat-num">10+</div>
+            <div class="stat-num" data-count="10" data-suffix="+">10+</div>
             <div class="stat-label">Jaar in de branche</div>
           </div>
           <div class="stat-card">
-            <div class="stat-num">24u</div>
+            <div class="stat-num" data-count="24" data-suffix="u">24u</div>
             <div class="stat-label">Reactietijd offerte</div>
           </div>
         </div>
@@ -234,80 +227,167 @@
     </div>
     <div class="diensten-grid">
       <div class="dienst-card reveal">
-        <div class="dienst-icon">🏚️</div>
-        <div class="dienst-name">Renovatie</div>
-        <div class="dienst-desc">Complete renovaties van woningen, appartementen en bedrijfsruimten. Van concept tot oplevering.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/woningrenovatie-luxe.jpg"><img src="/img/projecten/woningrenovatie-luxe.jpg" alt="Complete woningrenovatie door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Complete woningrenovatie</div>
+          <div class="dienst-desc">Van casco tot sleutelklaar: wij renoveren woningen, appartementen en interieurs volledig. Eén aanspreekpunt van concept tot oplevering.</div>
+        </div>
       </div>
       <div class="dienst-card reveal reveal-delay-1">
-        <div class="dienst-icon">🛋️</div>
-        <div class="dienst-name">Binnenhuis renovatie</div>
-        <div class="dienst-desc">Transformeer uw interieur met stijlvolle renovaties die passen bij uw woonwensen en budget.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/badkamer-toilet-tegels.jpg"><img src="/img/projecten/badkamer-toilet-tegels.jpg" alt="Badkamer renovatie door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Badkamer renovatie</div>
+          <div class="dienst-desc">Complete badkamers en toiletten: sloop, leidingwerk, tegelwerk, sanitair en afwerking. Strak, waterdicht en tijdloos.</div>
+        </div>
       </div>
       <div class="dienst-card reveal reveal-delay-2">
-        <div class="dienst-icon">🔨</div>
-        <div class="dienst-name">Sloopwerk</div>
-        <div class="dienst-desc">Professioneel sloopwerk en afvoer van materialen. Veilig en efficiënt uitgevoerd.</div>
+        <div class="dienst-media" data-lightbox="/img/diensten/keuken-sfeer.jpg"><img src="/img/diensten/keuken-sfeer.jpg" alt="Moderne keuken (sfeerimpressie)" loading="lazy"><span class="dienst-badge">Sfeerimpressie</span></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Keuken renovatie</div>
+          <div class="dienst-desc">Nieuwe keuken plaatsen of uw bestaande keuken vernieuwen. Inclusief achterwand, tegelwerk, aansluitingen en afwerking.</div>
+        </div>
       </div>
       <div class="dienst-card reveal">
-        <div class="dienst-icon">🏗️</div>
-        <div class="dienst-name">Opbouw &amp; verbouwing</div>
-        <div class="dienst-desc">Uitbouwen, aanbouwen, indeling wijzigen — wij maken uw verbouwingsplannen werkelijkheid.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/badkamer-douchevloer.jpg"><img src="/img/projecten/badkamer-douchevloer.jpg" alt="Tegelwerk wand & vloer door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Tegelwerk wand &amp; vloer</div>
+          <div class="dienst-desc">Grootformaat tegels, marmerlook of keramiek — vakkundig gezet voor badkamer, keuken, toilet en woonruimte.</div>
+        </div>
       </div>
       <div class="dienst-card reveal reveal-delay-1">
-        <div class="dienst-icon">🪵</div>
-        <div class="dienst-name">Laminaat leggen</div>
-        <div class="dienst-desc">Vakkundig gelegd laminaat met perfecte afwerking. Snelle verwerking met minimale overlast.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/vloertegels-leggen.jpg"><img src="/img/projecten/vloertegels-leggen.jpg" alt="Vloertegels leggen door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Vloertegels leggen</div>
+          <div class="dienst-desc">Tegelvloeren waterpas gelegd met een egalisatiesysteem, voor een perfect vlak resultaat zonder randen.</div>
+        </div>
       </div>
       <div class="dienst-card reveal reveal-delay-2">
-        <div class="dienst-icon">🏠</div>
-        <div class="dienst-name">PVC vloeren</div>
-        <div class="dienst-desc">Duurzame en waterbestendige PVC vloeren in alle stijlen. Ideaal voor badkamer, keuken en gang.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/visgraat-pvc-vloer.jpg"><img src="/img/projecten/visgraat-pvc-vloer.jpg" alt="Laminaat & PVC vloeren door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Laminaat &amp; PVC vloeren</div>
+          <div class="dienst-desc">Laminaat en PVC in rechte plank of visgraat. Duurzaam, onderhoudsvriendelijk en netjes afgewerkt met plinten.</div>
+        </div>
       </div>
       <div class="dienst-card reveal">
-        <div class="dienst-icon">⬛</div>
-        <div class="dienst-name">Vloertegels</div>
-        <div class="dienst-desc">Tegels leggen voor alle ruimtes. Strak en waterpas gelegd voor een perfect eindresultaat.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/traprenovatie-hout.jpg"><img src="/img/projecten/traprenovatie-hout.jpg" alt="Traprenovatie door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Traprenovatie</div>
+          <div class="dienst-desc">Uw oude trap als nieuw: bekleding in houtlook of betonlook, inclusief stootborden, neuzen en leuning.</div>
+        </div>
       </div>
       <div class="dienst-card reveal reveal-delay-1">
-        <div class="dienst-icon">🚿</div>
-        <div class="dienst-name">Badkamer renovatie</div>
-        <div class="dienst-desc">Volledige badkamerrenovaties inclusief sanitair, tegelwerk, afwerking en installatie.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/sierpleister-haard.jpg"><img src="/img/projecten/sierpleister-haard.jpg" alt="Sierpleister & betonlook door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Sierpleister &amp; betonlook</div>
+          <div class="dienst-desc">Luxe wandafwerking in sierpleister, betonlook of marmerlook. Een unieke uitstraling voor wand, schouw of hal.</div>
+        </div>
       </div>
       <div class="dienst-card reveal reveal-delay-2">
-        <div class="dienst-icon">🍳</div>
-        <div class="dienst-name">Keuken renovatie</div>
-        <div class="dienst-desc">Nieuwe keuken plaatsen of bestaande keuken renoveren. Inclusief achterwand en afwerking.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/stucwerk-sierpleister.jpg"><img src="/img/projecten/stucwerk-sierpleister.jpg" alt="Stucadoor werkzaamheden door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Stucadoor werkzaamheden</div>
+          <div class="dienst-desc">Glad stucwerk, spuitwerk en sausklare muren. De perfecte basis voor elk eindresultaat.</div>
+        </div>
       </div>
       <div class="dienst-card reveal">
-        <div class="dienst-icon">🪣</div>
-        <div class="dienst-name">Stucadoor werkzaamheden</div>
-        <div class="dienst-desc">Spuitwerk, sierpleister en gladde muren. Een perfecte ondergrond voor elk eindresultaat.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/wandpanelen-lijstwerk.jpg"><img src="/img/projecten/wandpanelen-lijstwerk.jpg" alt="Wandpanelen & lijstwerk door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Wandpanelen &amp; lijstwerk</div>
+          <div class="dienst-desc">Klassiek lijstwerk en wandpanelen die elke ruimte karakter en een luxe, afgewerkte uitstraling geven.</div>
+        </div>
       </div>
       <div class="dienst-card reveal reveal-delay-1">
-        <div class="dienst-icon">🖼️</div>
-        <div class="dienst-name">Behangen</div>
-        <div class="dienst-desc">Professioneel behangen met alle soorten behang. Strak aangebracht, zonder luchtbellen.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/plafond-led-verlichting.jpg"><img src="/img/projecten/plafond-led-verlichting.jpg" alt="Plafonds & LED-verlichting door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Plafonds &amp; LED-verlichting</div>
+          <div class="dienst-desc">Verlaagde plafonds, sfeerverlichting met LED-strips, inbouwspots en systeemplafonds voor elke ruimte.</div>
+        </div>
       </div>
       <div class="dienst-card reveal reveal-delay-2">
-        <div class="dienst-icon">🎨</div>
-        <div class="dienst-name">Schilderwerk</div>
-        <div class="dienst-desc">Schilderwerk binnen en buiten. Van basisrenovatie tot luxe afwerking in uw gewenste kleur en uitstraling.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/schilderwerk-accentmuur.jpg"><img src="/img/projecten/schilderwerk-accentmuur.jpg" alt="Schilderwerk binnen door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Schilderwerk binnen</div>
+          <div class="dienst-desc">Muren, plafonds, kozijnen en deuren — strak geschilderd in uw gewenste kleur, inclusief accentmuren.</div>
+        </div>
       </div>
       <div class="dienst-card reveal">
-        <div class="dienst-icon">🧱</div>
-        <div class="dienst-name">Muren afwerken</div>
-        <div class="dienst-desc">Gladde muren, sierpleister of betonlook — wij realiseren iedere look die u voor ogen heeft.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/gevel-schilderwerk.jpg"><img src="/img/projecten/gevel-schilderwerk.jpg" alt="Schilderwerk buiten door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Schilderwerk buiten</div>
+          <div class="dienst-desc">Gevels, kozijnen en houtwerk duurzaam beschermd en opgefrist, bestand tegen het Nederlandse weer.</div>
+        </div>
       </div>
       <div class="dienst-card reveal reveal-delay-1">
-        <div class="dienst-icon">🔲</div>
-        <div class="dienst-name">Plafond afwerking</div>
-        <div class="dienst-desc">Systeemplafonds, gestuukte plafonds en spannende plafondoplossingen voor elke ruimte.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/tv-wand-maatwerk.jpg"><img src="/img/projecten/tv-wand-maatwerk.jpg" alt="Timmerwerk & maatwerk door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Timmerwerk &amp; maatwerk</div>
+          <div class="dienst-desc">TV-wanden, akoestische panelen, nissen en inbouwkasten op maat — ontworpen en gebouwd voor uw ruimte.</div>
+        </div>
       </div>
       <div class="dienst-card reveal reveal-delay-2">
-        <div class="dienst-icon">🔧</div>
-        <div class="dienst-name">Timmerwerk &amp; maatwerk</div>
-        <div class="dienst-desc">Maatwerk timmerwerkzaamheden, onderhoudswerk en renovaties op maat. Vakkundig en netjes.</div>
+        <div class="dienst-media" data-lightbox="/img/projecten/bedrijfsruimte-renovatie.jpg"><img src="/img/projecten/bedrijfsruimte-renovatie.jpg" alt="Bedrijfsruimte renovatie door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Bedrijfsruimte renovatie</div>
+          <div class="dienst-desc">Kantoren, winkels en commerciële ruimtes: vloeren, wanden, plafonds en afwerking met minimale bedrijfsonderbreking.</div>
+        </div>
       </div>
+      <div class="dienst-card reveal">
+        <div class="dienst-media" data-lightbox="/img/diensten/behang-sfeer.jpg"><img src="/img/diensten/behang-sfeer.jpg" alt="Kamer met behang (sfeerimpressie)" loading="lazy"><span class="dienst-badge">Sfeerimpressie</span></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Behangen</div>
+          <div class="dienst-desc">Professioneel behangen met alle soorten behang, waaronder vliesbehang en fotobehang. Strak en zonder naden.</div>
+        </div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-1">
+        <div class="dienst-media" data-lightbox="/img/diensten/sloopwerk-sfeer.jpg"><img src="/img/diensten/sloopwerk-sfeer.jpg" alt="Sloopwerk (sfeerimpressie)" loading="lazy"><span class="dienst-badge">Sfeerimpressie</span></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Sloopwerk</div>
+          <div class="dienst-desc">Veilig en efficiënt sloopwerk, inclusief afvoer van puin en materialen. Klaar voor de volgende stap.</div>
+        </div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-2">
+        <div class="dienst-media" data-lightbox="/img/projecten/verbouwing-in-uitvoering.jpg"><img src="/img/projecten/verbouwing-in-uitvoering.jpg" alt="Verbouwing in uitvoering door Gouden Adelaar" loading="lazy"></div>
+        <div class="dienst-body">
+          <div class="dienst-name">Opbouw &amp; verbouwing</div>
+          <div class="dienst-desc">Uitbouwen, aanbouwen en indeling wijzigen — wij maken uw verbouwingsplannen werkelijkheid.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WERKWIJZE ─────────────────────────────────────── -->
+<section id="werkwijze">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-tag" style="justify-content:center"><span>Zo werken wij</span></div>
+      <h2 class="section-title">In vier stappen naar uw <em>droomresultaat</em></h2>
+      <p class="section-sub" style="margin:.75rem auto 0">Duidelijke afspraken, één vast aanspreekpunt en geen verrassingen achteraf.</p>
+    </div>
+    <ol class="steps reveal">
+      <li class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Kennismaking</h3>
+        <p>We bespreken uw wensen, bekijken de situatie ter plekke en denken mee over materialen en mogelijkheden.</p>
+      </li>
+      <li class="step reveal reveal-delay-1">
+        <div class="step-num">02</div>
+        <h3>Heldere offerte</h3>
+        <p>Binnen 24 uur een eerlijke, transparante prijsopgave met planning — zonder verborgen kosten.</p>
+      </li>
+      <li class="step reveal reveal-delay-2">
+        <div class="step-num">03</div>
+        <h3>Vakkundige uitvoering</h3>
+        <p>Onze vakmensen werken netjes en volgens planning. U wordt onderweg op de hoogte gehouden.</p>
+      </li>
+      <li class="step reveal reveal-delay-3">
+        <div class="step-num">04</div>
+        <h3>Oplevering</h3>
+        <p>Samen lopen we alles na. Pas als u helemaal tevreden bent, ronden we het project af.</p>
+      </li>
+    </ol>
+    <div class="reveal" style="text-align:center;margin-top:3.5rem">
+      <a href="#offerte" class="btn-gold">✦ Start met een gratis offerte</a>
     </div>
   </div>
 </section>
@@ -323,97 +403,82 @@
       
     </div>
     <div class="gallery-grid" id="gallery">
-      <div class="gallery-item reveal" data-cat="renovatie" data-lightbox="/img/11.png">
-        <img class="gallery-img" src="/img/11.png" alt="Renovatie" loading="lazy">
+      <div class="gallery-item reveal" data-lightbox="/img/projecten/sierpleister-haard.jpg">
+        <img class="gallery-img" src="/img/projecten/sierpleister-haard.jpg" alt="Haardwand in betonlook" loading="lazy">
         <div class="gallery-overlay"></div>
-        <div class="gallery-logo">© Gouden Adelaar</div>
         <div class="gallery-label">
-          <div class="gallery-label-cat">Renovatie</div>
-          <div class="gallery-label-title">Complete verbouwing</div>
+          <div class="gallery-label-cat">Betonlook</div>
+          <div class="gallery-label-title">Haardwand in betonlook</div>
         </div>
       </div>
-      <div class="gallery-item reveal reveal-delay-1" data-cat="badkamer" data-lightbox="/img/2.png">
-        <img class="gallery-img" src="/img/2.png" alt="Badkamer renovatie" loading="lazy">
+      <div class="gallery-item reveal reveal-delay-1" data-lightbox="/img/projecten/wandpanelen-lijstwerk.jpg">
+        <img class="gallery-img" src="/img/projecten/wandpanelen-lijstwerk.jpg" alt="Wandpanelen & lijstwerk" loading="lazy">
         <div class="gallery-overlay"></div>
-        <div class="gallery-logo">© Gouden Adelaar</div>
         <div class="gallery-label">
-          <div class="gallery-label-cat">Traprenovatie</div>
-          <div class="gallery-label-title">Trap renovatie</div>
+          <div class="gallery-label-cat">Wandafwerking</div>
+          <div class="gallery-label-title">Wandpanelen &amp; lijstwerk</div>
         </div>
       </div>
-      <div class="gallery-item reveal reveal-delay-2" data-cat="schilder" data-lightbox="/img/3.png">
-        <img class="gallery-img" src="/img/3.png" alt="Schilderwerk" loading="lazy">
+      <div class="gallery-item reveal reveal-delay-2" data-lightbox="/img/projecten/visgraat-pvc-vloer.jpg">
+        <img class="gallery-img" src="/img/projecten/visgraat-pvc-vloer.jpg" alt="PVC visgraatvloer" loading="lazy">
         <div class="gallery-overlay"></div>
-        <div class="gallery-logo">© Gouden Adelaar</div>
-        <div class="gallery-label">
-          <div class="gallery-label-cat">Behangen</div>
-          <div class="gallery-label-title">Behangen & wandafwerking</div>
-        </div>
-      </div>
-      <div class="gallery-item reveal" data-cat="vloer" data-lightbox="/img/4.png">
-        <img class="gallery-img" src="/img/4.png" alt="PVC vloer" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-logo">© Gouden Adelaar</div>
-        <div class="gallery-label">
-          <div class="gallery-label-cat">Trap & Behang</div>
-          <div class="gallery-label-title">Traprenovatie & behang</div>
-        </div>
-      </div>
-      <div class="gallery-item reveal reveal-delay-1" data-cat="renovatie" data-lightbox="/img/old-2.jpg">
-        <img class="gallery-img" src="/img/old-2.jpg" alt="Keuken renovatie" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-logo">© Gouden Adelaar</div>
-        <div class="gallery-label">
-          <div class="gallery-label-cat">Keuken</div>
-          <div class="gallery-label-title">Keuken renovatie</div>
-        </div>
-      </div>
-      <div class="gallery-item reveal" data-cat="badkamer" data-lightbox="/img/6.png">
-        <img class="gallery-img" src="/img/6.png" alt="Badkamer tegels" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-logo">© Gouden Adelaar</div>
         <div class="gallery-label">
           <div class="gallery-label-cat">Vloeren</div>
-          <div class="gallery-label-title">Laminaat &amp; behang</div>
+          <div class="gallery-label-title">PVC visgraatvloer</div>
         </div>
       </div>
-      <div class="gallery-item reveal reveal-delay-1" data-cat="vloer" data-lightbox="/img/7.png">
-        <img class="gallery-img" src="/img/7.png" alt="Laminaat & PVC" loading="lazy">
+      <div class="gallery-item reveal" data-lightbox="/img/projecten/badkamer-douchevloer.jpg">
+        <img class="gallery-img" src="/img/projecten/badkamer-douchevloer.jpg" alt="Inloopdouche met grootformaat tegels" loading="lazy">
         <div class="gallery-overlay"></div>
-        <div class="gallery-logo">© Gouden Adelaar</div>
-        <div class="gallery-label">
-          <div class="gallery-label-cat">Stucadoor</div>
-          <div class="gallery-label-title">Stucwerk & decoratie</div>
-        </div>
-      </div>
-      <div class="gallery-item reveal reveal-delay-2" data-cat="badkamer" data-lightbox="/img/old-3.jpg">
-        <img class="gallery-img" src="/img/old-3.jpg" alt="Badkamer renovatie" loading="lazy">
-        <div class="gallery-overlay"></div>
-        <div class="gallery-logo">© Gouden Adelaar</div>
         <div class="gallery-label">
           <div class="gallery-label-cat">Badkamer</div>
-          <div class="gallery-label-title">Badkamer renovatie</div>
+          <div class="gallery-label-title">Inloopdouche met grootformaat tegels</div>
         </div>
       </div>
-        <div class="gallery-logo">© Gouden Adelaar</div>
+      <div class="gallery-item reveal reveal-delay-1" data-lightbox="/img/projecten/sierpleister-golf.jpg">
+        <img class="gallery-img" src="/img/projecten/sierpleister-golf.jpg" alt="Sierpleister accentwand" loading="lazy">
+        <div class="gallery-overlay"></div>
         <div class="gallery-label">
-          <div class="gallery-label-cat">Badkamer</div>
-          <div class="gallery-label-title">Badkamer renovatie</div>
+          <div class="gallery-label-cat">Sierpleister</div>
+          <div class="gallery-label-title">Sierpleister accentwand</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-lightbox="/img/projecten/traprenovatie-hout.jpg">
+        <img class="gallery-img" src="/img/projecten/traprenovatie-hout.jpg" alt="Trap bekleed in houtlook" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-label">
+          <div class="gallery-label-cat">Traprenovatie</div>
+          <div class="gallery-label-title">Trap bekleed in houtlook</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal" data-lightbox="/img/projecten/tv-wand-maatwerk.jpg">
+        <img class="gallery-img" src="/img/projecten/tv-wand-maatwerk.jpg" alt="TV-wand met lijstwerk" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-label">
+          <div class="gallery-label-cat">Maatwerk</div>
+          <div class="gallery-label-title">TV-wand met lijstwerk</div>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-lightbox="/img/projecten/plafond-led-verlichting.jpg">
+        <img class="gallery-img" src="/img/projecten/plafond-led-verlichting.jpg" alt="Plafond met LED-sfeerverlichting" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-label">
+          <div class="gallery-label-cat">Plafonds</div>
+          <div class="gallery-label-title">Plafond met LED-sfeerverlichting</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ─── REVIEWS ───────────────────────────────────────── -->
-
     <div class="gallery-cta reveal">
       <a href="/projecten.html" class="gallery-cta-btn">
         <span>Bekijk alle projecten</span>
         <span class="gallery-cta-arrow">→</span>
       </a>
-      <p class="gallery-cta-text">Meer dan 20 uitgevoerde projecten in Amsterdam en heel Nederland</p>
+      <p class="gallery-cta-text">Meer uitgevoerde projecten in Amsterdam en heel Nederland</p>
     </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ───────────────────────────────────────── -->
 <section id="reviews">
   <div class="container">
     <div class="reveal">
@@ -672,7 +737,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="fb-logo" style="font-size:2rem;margin-bottom:.75rem">🦅 Gouden <span>Adelaar</span></div>
+      <div class="fb-logo" style="font-size:2rem;margin-bottom:.75rem;display:flex;align-items:center;gap:.75rem"><img src="/img/logo-180.png" alt="" width="64" height="64" style="border-radius:50%"> <span style="color:var(--cream)">Gouden <span>Adelaar</span></span></div>
       <p>Professioneel bouw- en renovatiebedrijf. Vakmanschap, kwaliteit en nette afwerking — dat is onze belofte aan elke klant.</p>
       <div style="margin-top:1.5rem;font-size:.78rem;color:var(--gray">
         KvK: 42053662<br>Tel: 06 300 02 333
@@ -722,7 +787,7 @@
       <a href="https://www.instagram.com/goudenadelaarbedrijf/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
       </a>
-      <a href="https://www.tiktok.com/@goudenadelaar" target="_blank rel="noopener noreferrer"" aria-label="TikTok">
+      <a href="https://www.tiktok.com/@goudenadelaar" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
       </a>
     </div>
@@ -742,7 +807,8 @@
         xhr.send();
       }, 14 * 60 * 1000);
     })();
-    </script><script src="/js/main.js"></script>
+    </script><script src="/js/main.js?v=3"></script>
+<script src="/js/enhance.js?v=3"></script>
 </body>
 </html>
 

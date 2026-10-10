@@ -110,7 +110,7 @@ section{padding:7rem 2rem}
 #diensten{background:var(--black)}
 .diensten-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;gap:2rem}
 .diensten-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(201,168,76,.1)}
-.dienst-card{background:var(--dark);padding:2.2rem 1.8rem;transition:all .4s var(--ease-smooth);cursor:default;position:relative;overflow:hidden}
+.dienst-card{background:var(--dark);padding:0;display:flex;flex-direction:column;transition:all .4s var(--ease-smooth);cursor:default;position:relative;overflow:hidden}
 .dienst-card::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease-smooth)}
 .dienst-card:hover{background:var(--dark2);transform:translateY(-3px)}
 .dienst-card:hover::before{transform:scaleX(1)}
@@ -118,6 +118,14 @@ section{padding:7rem 2rem}
 .dienst-card:hover .dienst-icon{border-color:var(--gold);background:rgba(201,168,76,.1)}
 .dienst-name{font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--cream);margin-bottom:.5rem}
 .dienst-desc{font-size:.85rem;color:var(--gray);line-height:1.7}
+.dienst-media{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--dark2);cursor:zoom-in}
+.dienst-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease-smooth);filter:saturate(.9)}
+.dienst-card:hover .dienst-media img{transform:scale(1.06);filter:saturate(1.1)}
+.dienst-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.55) 0%,transparent 45%);pointer-events:none}
+.dienst-media-icon{cursor:default;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 45%,rgba(201,168,76,.18) 0%,rgba(201,168,76,.04) 55%,transparent 75%),repeating-linear-gradient(45deg,rgba(201,168,76,.05) 0 1px,transparent 1px 14px),var(--dark2)}
+.dienst-media-icon span{font-size:3rem;width:96px;height:96px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,168,76,.35);border-radius:50%;transition:all .4s}
+.dienst-card:hover .dienst-media-icon span{border-color:var(--gold);background:rgba(201,168,76,.1)}
+.dienst-body{padding:1.6rem 1.8rem 2rem}
 
 /* ─── PROJECTEN ─────────────────────────────────────── */
 #projecten{background:var(--dark)}
@@ -151,7 +159,7 @@ section{padding:7rem 2rem}
 .reviews-list{display:flex;flex-direction:column;gap:1.5rem}
 .review-card{background:var(--dark);border:1px solid rgba(201,168,76,.1);padding:2rem;position:relative;transition:all .4s}
 .review-card:hover{border-color:rgba(201,168,76,.3);transform:translateX(4px)}
-.review-quote{font-family:var(--font-display);font-size:3rem;line-height:1;color:var(--gold);position:absolute;top:.75rem;right:1.25rem;opacity:.2}"
+.review-quote{font-family:var(--font-display);font-size:3rem;line-height:1;color:var(--gold);position:absolute;top:.75rem;right:1.25rem;opacity:.2}
 .review-stars{display:flex;gap:3px;margin-bottom:1rem}
 .star{color:var(--gold);font-size:.85rem}
 .review-text{font-size:.95rem;color:rgba(245,240,232,.8);line-height:1.8;font-style:italic;margin-bottom:1.25rem}
@@ -364,7 +372,7 @@ input,textarea,select{font-size:16px}
  .over-badge .num{font-size:2rem}
  .diensten-intro{flex-direction:column;align-items:flex-start;margin-bottom:2rem}
  .diensten-grid{gap:1px}
- .dienst-card{padding:1.5rem 1.2rem}
+ .dienst-body{padding:1.3rem 1.2rem 1.5rem}
  .gallery-header{flex-direction:column;align-items:flex-start}
  .gallery-filter{flex-wrap:nowrap;overflow-x:auto;width:100%;padding-bottom:.5rem;-webkit-overflow-scrolling:touch}
  .gallery-filter::-webkit-scrollbar{height:2px}
@@ -417,4 +425,150 @@ input,textarea,select{font-size:16px}
 @media(max-width:375px){
  .mobile-menu-compact a{font-size:1.3rem!important}
  .mobile-menu-compact{gap:1.2rem!important}
+}
+@media(max-width:768px){
+ .dienst-media{aspect-ratio:16/9}
+ .dienst-media-icon span{font-size:2.2rem;width:72px;height:72px}
+}
+
+/* ═══ V3 · VERFIJNING & ANIMATIES ═══════════════════════════ */
+:root{--ease-out:cubic-bezier(.16,1,.3,1)}
+
+/* Toegankelijkheid */
+.skip-link{position:absolute;left:1rem;top:-100px;z-index:6000;background:var(--gold);color:var(--black);padding:.6rem 1rem;font-weight:600;text-decoration:none}
+.skip-link:focus{top:1rem}
+a:focus-visible,button:focus-visible,[role=button]:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* Preloader (verdwijnt ook zonder JavaScript na 3s) */
+.preloader{position:fixed;inset:0;z-index:5000;background:var(--black);display:flex;align-items:center;justify-content:center;transition:opacity .6s var(--ease-out),visibility .6s;animation:preFallback 0s 3s forwards}
+.preloader img{width:110px;height:110px;border-radius:50%;animation:prePulse 1.4s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(201,168,76,.35))}
+.preloader.hide{opacity:0;visibility:hidden}
+@keyframes prePulse{0%,100%{transform:scale(.92);opacity:.8}50%{transform:scale(1);opacity:1}}
+@keyframes preFallback{to{opacity:0;visibility:hidden}}
+
+/* Scrollvoortgang */
+.scroll-progress{position:fixed;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));transform-origin:0 50%;transform:scaleX(0);z-index:1100;pointer-events:none}
+
+/* Navigatie */
+.nav-links a.active{color:var(--gold)}
+.nav-links a.active::after{width:100%}
+.nav-logo img{transition:transform .6s var(--ease-out)}
+.nav-logo:hover img{transform:rotate(-8deg) scale(1.06)}
+
+/* Hero: langzame zoom, regels die omhoog schuiven, gouden glans */
+.hero-slide{will-change:opacity}
+.hero-slide.active{animation:kenburns 9s var(--ease-out) both}
+@keyframes kenburns{from{scale:1.12}to{scale:1}}
+.hero-h1 .ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.hero-h1 .ln>span{display:inline-block;transform:translateY(105%);transition:transform 1.1s var(--ease-out)}
+.hero-h1.visible .ln>span{transform:none}
+.hero-h1 .ln:nth-child(2)>span{transition-delay:.12s}
+.hero-h1 .ln:nth-child(3)>span{transition-delay:.24s}
+.hero-h1 em{background:linear-gradient(100deg,var(--gold) 20%,var(--gold-light) 40%,#fff3c8 50%,var(--gold-light) 60%,var(--gold) 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 7s linear infinite;padding-right:.08em}
+@keyframes shimmer{from{background-position:120% 0}to{background-position:-130% 0}}
+.hero-dot{position:relative;height:22px;padding:10px 0;background-clip:content-box;overflow:hidden}
+.hero-dot.active{background:rgba(245,240,232,.3);background-clip:content-box}
+.hero-dot.active::after{content:"";position:absolute;left:0;right:0;top:10px;bottom:10px;background:var(--gold);transform-origin:left;animation:dotFill 5s linear forwards}
+@keyframes dotFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* Knoppen: lichtschittering */
+.btn-gold{position:relative;overflow:hidden;isolation:isolate}
+.btn-gold::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.4) 50%,transparent 70%);transform:translateX(-130%);transition:transform .9s var(--ease-out);pointer-events:none}
+.btn-gold:hover::after{transform:translateX(130%)}
+.float-btn{animation:floatGlow 3s ease-in-out infinite}
+@keyframes floatGlow{0%,100%{box-shadow:0 8px 30px rgba(201,168,76,.25)}50%{box-shadow:0 8px 40px rgba(201,168,76,.5)}}
+.float-cta{transition:opacity .4s var(--ease-out),transform .4s var(--ease-out)}
+.float-cta.is-hidden{opacity:0;transform:translateY(20px);pointer-events:none}
+.float-phone svg{flex-shrink:0}
+
+/* Sectietitels: gouden lijn tekent zich */
+.section-tag::before{transition:width .9s .2s var(--ease-out)}
+.reveal:not(.visible) .section-tag::before,.section-tag.reveal:not(.visible)::before,.reveal-right:not(.visible) .section-tag::before{width:0}
+
+/* Lopende band met diensten */
+.marquee{position:relative;overflow:hidden;background:var(--black);border-bottom:1px solid rgba(201,168,76,.12);padding:1.1rem 0}
+.marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.marquee::before{left:0;background:linear-gradient(90deg,var(--black),transparent)}
+.marquee::after{right:0;background:linear-gradient(270deg,var(--black),transparent)}
+.marquee-track{display:flex;width:max-content;animation:marquee 45s linear infinite}
+.marquee-track span{display:flex;align-items:center;gap:2.5rem;padding-right:2.5rem;font-family:var(--font-display);font-size:1.45rem;font-style:italic;color:rgba(248,244,236,.55);white-space:nowrap}
+.marquee-track span::after{content:"✦";font-style:normal;font-size:.75rem;color:var(--gold)}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* Over ons: foto onthult zich */
+.reveal-left .over-img{clip-path:inset(0 100% 0 0);transition:clip-path 1.3s var(--ease-out) .15s,filter .6s}
+.reveal-left.visible .over-img{clip-path:inset(0 0 0 0)}
+.over-img:hover{filter:grayscale(0)}
+.over-badge{box-shadow:0 20px 40px -10px rgba(0,0,0,.6)}
+.stat-num{font-variant-numeric:tabular-nums}
+
+/* Dienstkaarten */
+.dienst-card{will-change:transform}
+.dienst-card:hover{box-shadow:0 24px 50px -24px rgba(0,0,0,.9),0 0 0 1px rgba(201,168,76,.28);z-index:2}
+.dienst-card:hover .dienst-name{color:var(--gold-light)}
+.dienst-name{transition:color .3s}
+.dienst-badge{position:absolute;top:.75rem;left:.75rem;z-index:2;font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:rgba(10,10,10,.6);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(201,168,76,.35);padding:.25rem .6rem}
+.dienst-media::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%);transform:translateX(-100%);transition:transform 1s var(--ease-out);pointer-events:none}
+.dienst-card:hover .dienst-media::before{transform:translateX(100%)}
+@media(min-width:561px) and (max-width:768px){.diensten-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* Werkwijze */
+#werkwijze{background:var(--dark)}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem;margin-top:4rem;position:relative}
+.steps::before{content:"";position:absolute;top:28px;left:28px;right:28px;height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.12));transform-origin:left;transform:scaleX(0);transition:transform 1.8s var(--ease-out) .3s}
+.steps.visible::before{transform:scaleX(1)}
+.step-num{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;border:1px solid var(--gold);background:var(--dark);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.35rem;font-weight:600;color:var(--gold);margin-bottom:1.5rem;transition:background .35s,color .35s,transform .35s var(--ease-out)}
+.step:hover .step-num{background:var(--gold);color:var(--black);transform:scale(1.08)}
+.step h3{font-family:var(--font-display);font-size:1.45rem;font-weight:600;color:var(--cream);margin-bottom:.5rem}
+.step p{font-size:.9rem;color:rgba(245,240,232,.6);line-height:1.75}
+@media(max-width:1024px){.steps{grid-template-columns:1fr 1fr}.steps::before{display:none}}
+@media(max-width:560px){.steps{grid-template-columns:1fr;gap:2rem}}
+
+/* Projecten */
+.gallery-item{isolation:isolate}
+.gallery-item::after{content:"⤢";position:absolute;top:.9rem;right:.9rem;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(10,10,10,.55);border:1px solid rgba(201,168,76,.4);color:var(--gold);font-size:.9rem;opacity:0;transform:scale(.8);transition:opacity .35s,transform .35s var(--ease-out)}
+.gallery-item:hover::after{opacity:1;transform:none}
+.gallery-label{transition:transform .45s var(--ease-out),opacity .45s}
+@media(hover:none){
+ .gallery-overlay{opacity:1}
+ .gallery-label{opacity:1;transform:none}
+}
+
+/* Reviews & formulieren */
+.review-card{transition:border-color .4s,transform .45s var(--ease-out),box-shadow .45s}
+.review-card:hover{box-shadow:0 20px 40px -20px rgba(0,0,0,.7)}
+.form-input,.form-textarea{color:var(--cream)}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(245,240,232,.35)}
+.form-input:focus,.form-textarea:focus,.form-select:focus{box-shadow:0 0 0 3px rgba(201,168,76,.15)}
+.star-btn{transition:color .2s,transform .2s var(--ease-out)}
+.star-btn:hover{transform:scale(1.2)}
+.success-msg.show{animation:popIn .5s var(--ease-out)}
+@keyframes popIn{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
+.offerte-form{box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
+
+/* Lightbox met vervaging en bladerknoppen */
+.lightbox{display:flex;opacity:0;visibility:hidden;transition:opacity .35s var(--ease-out),visibility .35s;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox img{max-height:80vh;transform:scale(.94);transition:transform .5s var(--ease-out),opacity .2s;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lightbox.open img{transform:none}
+.lightbox img.swap{opacity:0}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(201,168,76,.4);background:rgba(10,10,10,.5);color:var(--gold);font-size:1.8rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s,color .25s}
+.lb-nav:hover{background:var(--gold);color:var(--black)}
+.lb-prev{left:1.5rem}
+.lb-next{right:1.5rem}
+.lb-caption{position:absolute;bottom:1.25rem;left:1rem;right:1rem;text-align:center;font-family:var(--font-display);font-size:1.2rem;color:var(--cream);pointer-events:none}
+.lb-caption small{display:block;font-family:var(--font-body);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
+@media(max-width:600px){.lb-nav{width:42px;height:42px;font-size:1.5rem;top:auto;bottom:4.5rem;transform:none}.lb-prev{left:1rem}.lb-next{right:1rem}}
+
+/* Footer */
+.footer-brand .fb-logo img{transition:transform .8s var(--ease-out)}
+.footer-brand:hover .fb-logo img{transform:rotate(-10deg)}
+
+/* Minder beweging als de gebruiker dat wil */
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+ .hero-h1 .ln>span{transform:none}
+ .reveal-left .over-img{clip-path:none}
+ .marquee-track{animation:none}
 }

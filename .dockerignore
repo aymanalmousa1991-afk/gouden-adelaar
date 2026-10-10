@@ -1,0 +1,13 @@
+# Niet meenemen in de Docker-image
+node_modules
+server/node_modules
+.git
+.env
+server/.env
+# Originele foto's zonder watermerk blijven lokaal / in git, niet online
+originelen
+# Losse hulpscripts
+fix-*.js
+check-labels.js
+generate-images*.js
+gen.ps1

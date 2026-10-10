@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bekijk alle uitgevoerde projecten van Gouden Adelaar - Badkamers, keukens, vloeren, schilderwerk en meer.">
     <title>Projecten - Gouden Adelaar Bouw & Renovatie</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32.png">
+    <link rel="apple-touch-icon" href="/img/logo-180.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -136,6 +138,32 @@
         }
         .lightbox-overlay .close-lb:hover { color: var(--gold); }
 
+        /* Filter, animaties, lightbox */
+        .pf-filter { display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem; padding:2.5rem 2rem 0; max-width:1100px; margin:0 auto; }
+        .pf-chip { background:none; border:1px solid rgba(245,240,232,.15); color:rgba(245,240,232,.6); padding:.55rem 1.1rem; min-height:40px; font-family:var(--font-body); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; transition:all .3s; }
+        .pf-chip:hover, .pf-chip.active { border-color:var(--gold); color:var(--gold); background:rgba(201,168,76,.08); }
+        .project-card { border:none; padding:0; display:block; width:100%; text-align:left; font:inherit; opacity:0; transform:translateY(24px) scale(.98); transition:opacity .7s cubic-bezier(.16,1,.3,1) var(--d,0ms), transform .7s cubic-bezier(.16,1,.3,1) var(--d,0ms), box-shadow .4s; }
+        .project-card.in { opacity:1; transform:none; }
+        .project-card.in:hover { transform:translateY(-4px); box-shadow:0 24px 50px -24px rgba(0,0,0,.9), 0 0 0 1px rgba(201,168,76,.3); }
+        .project-card.verborgen { display:none; }
+        .lightbox-overlay { display:flex; opacity:0; visibility:hidden; transition:opacity .35s, visibility .35s; backdrop-filter:blur(8px); }
+        .lightbox-overlay.open { opacity:1; visibility:visible; }
+        .lightbox-overlay img { max-height:80vh; transition:opacity .2s, transform .5s cubic-bezier(.16,1,.3,1); transform:scale(.95); }
+        .lightbox-overlay.open img { transform:none; }
+        .lightbox-overlay img.swap { opacity:0; }
+        .pf-nav { position:absolute; top:50%; transform:translateY(-50%); width:52px; height:52px; border-radius:50%; border:1px solid rgba(201,168,76,.4); background:rgba(10,10,10,.5); color:var(--gold); font-size:1.8rem; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .25s, color .25s; }
+        .pf-nav:hover { background:var(--gold); color:var(--black); }
+        .pf-prev { left:1.5rem; }
+        .pf-next { right:1.5rem; }
+        .pf-caption { position:absolute; bottom:1.25rem; left:1rem; right:1rem; text-align:center; font-family:var(--font-display); font-size:1.2rem; color:var(--cream); pointer-events:none; }
+        .pf-caption small { display:block; font-family:var(--font-body); font-size:.66rem; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); margin-bottom:.2rem; }
+        .projects-hero h1 { animation:pfUp 1s cubic-bezier(.16,1,.3,1) both; }
+        .projects-hero p { animation:pfUp 1s .15s cubic-bezier(.16,1,.3,1) both; }
+        @keyframes pfUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+        @media(hover:none) { .project-card .overlay { opacity:1; } .project-card .label { opacity:1; transform:none; } }
+        @media(max-width:600px) { .pf-nav { width:42px; height:42px; top:auto; bottom:4.5rem; transform:none; } .pf-prev { left:1rem; } .pf-next { right:1rem; } .pf-filter { padding:1.5rem 1rem 0; } }
+        @media(prefers-reduced-motion:reduce) { .project-card { opacity:1; transform:none; transition:none; } .projects-hero h1, .projects-hero p { animation:none; } }
+
         @media(max-width:768px) {
             .projects-hero h1 { font-size: 2rem; }
             .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 1.5rem 1rem; }
@@ -150,7 +178,7 @@
     <!-- Simple nav -->
     <nav id="nav" style="position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.15);display:flex;align-items:center;justify-content:space-between">
         <a href="/" style="display:flex;align-items:center;gap:.75rem;text-decoration:none">
-            <img src="/img/logo%20(2).png" alt="Gouden Adelaar" style="width:40px;height:40px;object-fit:contain">
+            <img src="/img/logo-180.png" alt="Gouden Adelaar" style="width:44px;height:44px;object-fit:contain;border-radius:50%">
             <div style="display:flex;flex-direction:column;line-height:1.1">
                 <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;font-weight:600;color:#F5F0E8">Gouden Adelaar</span>
                 <span style="font-size:.6rem;font-weight:300;color:#C9A84C;letter-spacing:.15em;text-transform:uppercase">Bouw &amp; Renovatie</span>
@@ -165,70 +193,168 @@
         <p>Een overzicht van al onze uitgevoerde werkzaamheden — van badkamers tot complete renovaties.</p>
     </div>
 
+    <!-- Filter -->
+    <div class="pf-filter" id="pfFilter" role="toolbar" aria-label="Filter projecten"></div>
+
     <!-- Grid -->
     <div class="projects-grid" id="projectsGrid"></div>
 
     <!-- Lightbox -->
     <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
-        <button class="close-lb" onclick="closeLightbox()">&times;</button>
-        <img id="lightboxImg" src="" alt="Project foto">
+        <button class="close-lb" onclick="closeLightbox()" aria-label="Sluiten">&times;</button>
+        <button class="pf-nav pf-prev" id="pfPrev" aria-label="Vorige foto">&#8249;</button>
+        <img id="lightboxImg" src="" alt="Project foto" onclick="event.stopPropagation()">
+        <button class="pf-nav pf-next" id="pfNext" aria-label="Volgende foto">&#8250;</button>
+        <div class="pf-caption" id="pfCaption"></div>
     </div>
 
     <!-- Footer -->
     <footer class="footer" role="contentinfo" style="border-top:1px solid rgba(201,168,76,.1);padding:2rem;text-align:center;background:var(--dark)">
         <div class="container">
-            <p style="font-size:.8rem;color:rgba(245,240,232,.35)">&copy; 2025 Gouden Adelaar Bouw &amp; Renovatie. Alle rechten voorbehouden.</p>
+            <p style="font-size:.8rem;color:rgba(245,240,232,.35)">&copy; 2026 Gouden Adelaar Bouw &amp; Renovatie. Alle rechten voorbehouden.</p>
             <a href="/" style="font-size:.75rem;color:var(--gold);text-decoration:none;margin-top:.5rem;display:inline-block">← Terug naar home</a>
         </div>
     </footer>
 
     <script>
-        // Alle fotos - allemaal met algemeen label
+        // Alle projectfoto's (met watermerk) uit /img/projecten/
         const fotos = [
-            // Alle fotos uit img/ (1-17.png + old fotos + foto/ submap)
-            { src: '/img/1.png' }, { src: '/img/2.png' }, { src: '/img/3.png' },
-            { src: '/img/4.png' }, { src: '/img/5.png' }, { src: '/img/6.png' },
-            { src: '/img/7.png' }, { src: '/img/8.png' }, { src: '/img/9.png' },
-            { src: '/img/10.png' }, { src: '/img/11.png' }, { src: '/img/12.png' },
-            { src: '/img/13.png' }, { src: '/img/14.png' }, { src: '/img/15.png' },
-            { src: '/img/16.png' }, { src: '/img/17.png' },
-            { src: '/img/old-1.jpg' }, { src: '/img/old-2.jpg' }, { src: '/img/old-3.jpg' },
+            { src: '/img/projecten/sierpleister-haard.jpg', cat: 'Betonlook', titel: 'Haardwand in betonlook' },
+            { src: '/img/projecten/woningrenovatie-luxe.jpg', cat: 'Woningrenovatie', titel: 'Sierpleister, lijstwerk & marmervloer' },
+            { src: '/img/projecten/wandpanelen-lijstwerk.jpg', cat: 'Wandafwerking', titel: 'Wandpanelen & lijstwerk' },
+            { src: '/img/projecten/tv-wand-maatwerk.jpg', cat: 'Maatwerk', titel: 'TV-wand met lijstwerk' },
+            { src: '/img/projecten/visgraat-pvc-vloer.jpg', cat: 'Vloeren', titel: 'PVC visgraatvloer' },
+            { src: '/img/projecten/badkamer-douchevloer.jpg', cat: 'Badkamer', titel: 'Inloopdouche met grootformaat tegels' },
+            { src: '/img/projecten/badkamer-toilet-tegels.jpg', cat: 'Badkamer', titel: 'Toilet met wandtegels' },
+            { src: '/img/projecten/sierpleister-golf.jpg', cat: 'Sierpleister', titel: 'Sierpleister accentwand' },
+            { src: '/img/projecten/traprenovatie-hout.jpg', cat: 'Traprenovatie', titel: 'Trap bekleed in houtlook' },
+            { src: '/img/projecten/plafond-led-verlichting.jpg', cat: 'Plafonds', titel: 'Plafond met LED-sfeerverlichting' },
+            { src: '/img/projecten/tv-wand-sierpleister.jpg', cat: 'Sierpleister', titel: 'Woonkamer met TV-wand' },
+            { src: '/img/projecten/vloertegels-leggen.jpg', cat: 'Tegelwerk', titel: 'Vloertegels met egalisatiesysteem' },
+            { src: '/img/projecten/traprenovatie-grijs.jpg', cat: 'Traprenovatie', titel: 'Trap in betonlook' },
+            { src: '/img/projecten/gang-sierpleister.jpg', cat: 'Sierpleister', titel: 'Gang in sierpleister' },
+            { src: '/img/projecten/visgraat-laminaat.jpg', cat: 'Vloeren', titel: 'Visgraat laminaat' },
+            { src: '/img/projecten/verlaagd-plafond-led.jpg', cat: 'Plafonds', titel: 'Verlaagd plafond met LED' },
+            { src: '/img/projecten/schilderwerk-accentmuur.jpg', cat: 'Schilderwerk', titel: 'Accentmuur & laminaat' },
+            { src: '/img/projecten/bedrijfsruimte-renovatie.jpg', cat: 'Bedrijfsruimte', titel: 'Kantoorrenovatie' },
+            { src: '/img/projecten/trappenhuis-sierpleister.jpg', cat: 'Sierpleister', titel: 'Trappenhuis in sierpleister' },
+            { src: '/img/projecten/visgraat-vloer-licht.jpg', cat: 'Vloeren', titel: 'Lichte visgraatvloer' },
+            { src: '/img/projecten/hal-renovatie.jpg', cat: 'Renovatie', titel: 'Hal met spots & sierpleister' },
+            { src: '/img/projecten/traprenovatie-draaitrap.jpg', cat: 'Traprenovatie', titel: 'Draaitrap bekleed' },
+            { src: '/img/projecten/gevel-schilderwerk.jpg', cat: 'Schilderwerk', titel: 'Gevel & kozijnen' },
+            { src: '/img/projecten/stucwerk-sierpleister.jpg', cat: 'Stucwerk', titel: 'Stucwerk woonkamer' },
+            { src: '/img/projecten/sierpleister-wand.jpg', cat: 'Sierpleister', titel: 'Sierpleister wand' },
+            { src: '/img/projecten/hal-sierpleister.jpg', cat: 'Sierpleister', titel: 'Entree in sierpleister' },
+            { src: '/img/projecten/wandpaneel-nis.jpg', cat: 'Maatwerk', titel: 'Wandpaneel met nis' },
+            { src: '/img/projecten/verbouwing-in-uitvoering.jpg', cat: 'Renovatie', titel: 'Verbouwing in uitvoering' },
         ];
 
-        // Voeg fotos uit de foto/ submap toe
-        for (let i = 1; i <= 20; i++) {
-            fotos.push({ src: '/img/foto/project (' + i + ').jpeg' });
-        }
+        // Filtergroepen (meerdere categorieën samen)
+        const GROEPEN = { Betonlook: "Sierpleister & stuc", Sierpleister: "Sierpleister & stuc", Stucwerk: "Sierpleister & stuc", Wandafwerking: "Wanden & maatwerk", Maatwerk: "Wanden & maatwerk", Vloeren: "Vloeren & tegels", Tegelwerk: "Vloeren & tegels", Badkamer: "Badkamers", Traprenovatie: "Trappen", Plafonds: "Plafonds", Schilderwerk: "Schilderwerk", Woningrenovatie: "Renovatie", Renovatie: "Renovatie", Bedrijfsruimte: "Renovatie" };
+        const groep = (f) => GROEPEN[f.cat] || f.cat;
 
-        // Render grid
+        // Render grid + filter
         const grid = document.getElementById('projectsGrid');
+        const filterBar = document.getElementById('pfFilter');
+        const kaarten = [];
+        let zichtbaar = fotos.slice();
+        let huidig = 0;
+
         fotos.forEach((foto, index) => {
-            const card = document.createElement('div');
+            const card = document.createElement('button');
+            card.type = 'button';
             card.className = 'project-card';
+            card.style.setProperty('--d', (index % 4) * 70 + 'ms');
             card.innerHTML = `
-                <img src="${foto.src}" alt="Gouden Adelaar project" loading="lazy" onerror="this.parentElement.style.display='none'">
+                <img src="${foto.src}" alt="${foto.titel} - Gouden Adelaar" loading="lazy" onerror="this.parentElement.style.display='none'">
                 <div class="overlay"></div>
                 <div class="label">
-                    <span>Gouden Adelaar</span>
+                    ${foto.titel}<span>${foto.cat}</span>
                 </div>
             `;
-            card.addEventListener('click', () => openLightbox(foto.src));
+            card.addEventListener('click', () => openLightbox(zichtbaar.indexOf(foto)));
             grid.appendChild(card);
+            kaarten.push(card);
         });
 
-        function openLightbox(src) {
-            document.getElementById('lightboxImg').src = src;
+        // Categorie-knoppen
+        const cats = ['Alle'].concat([...new Set(fotos.map(groep))]);
+        cats.forEach((cat, i) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'pf-chip' + (i === 0 ? ' active' : '');
+            b.textContent = cat;
+            b.addEventListener('click', () => {
+                filterBar.querySelectorAll('.pf-chip').forEach(c => c.classList.remove('active'));
+                b.classList.add('active');
+                zichtbaar = fotos.filter(f => cat === 'Alle' || groep(f) === cat);
+                kaarten.forEach((k, j) => {
+                    const toon = cat === 'Alle' || groep(fotos[j]) === cat;
+                    k.classList.toggle('verborgen', !toon);
+                    if (toon) { k.classList.remove('in'); void k.offsetWidth; k.classList.add('in'); }
+                });
+            });
+            filterBar.appendChild(b);
+        });
+
+        // Verschijn-animatie bij scrollen
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        kaarten.forEach(k => obs.observe(k));
+
+        function toonFoto(i) {
+            if (!zichtbaar.length) return;
+            huidig = (i + zichtbaar.length) % zichtbaar.length;
+            const f = zichtbaar[huidig];
+            const img = document.getElementById('lightboxImg');
+            const cap = document.getElementById('pfCaption');
+            img.classList.add('swap');
+            setTimeout(() => {
+                img.src = f.src;
+                img.alt = f.titel;
+                const s = document.createElement('small');
+                s.textContent = f.cat + '  ·  ' + (huidig + 1) + ' / ' + zichtbaar.length;
+                const t = document.createElement('span');
+                t.textContent = f.titel;
+                cap.replaceChildren(s, t);
+                img.classList.remove('swap');
+            }, 150);
+        }
+
+        function openLightbox(i) {
+            toonFoto(i);
             document.getElementById('lightboxOverlay').classList.add('open');
             document.body.style.overflow = 'hidden';
         }
+
+        document.getElementById('pfPrev').addEventListener('click', (e) => { e.stopPropagation(); toonFoto(huidig - 1); });
+        document.getElementById('pfNext').addEventListener('click', (e) => { e.stopPropagation(); toonFoto(huidig + 1); });
+
+        let startX = null;
+        const lbo = document.getElementById('lightboxOverlay');
+        lbo.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+        lbo.addEventListener('touchend', (e) => {
+            if (startX === null) return;
+            const dx = e.changedTouches[0].clientX - startX;
+            startX = null;
+            if (Math.abs(dx) > 50) { e.preventDefault(); toonFoto(dx < 0 ? huidig + 1 : huidig - 1); }
+        });
 
         function closeLightbox() {
             document.getElementById('lightboxOverlay').classList.remove('open');
             document.body.style.overflow = '';
         }
 
+        document.addEventListener('contextmenu', (e) => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+        document.addEventListener('dragstart', (e) => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
+            if (document.getElementById('lightboxOverlay').classList.contains('open')) {
+                if (e.key === 'ArrowLeft') toonFoto(huidig - 1);
+                if (e.key === 'ArrowRight') toonFoto(huidig + 1);
+            }
         });
     </script>
 </body>

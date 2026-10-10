@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
         qsa('.hero-dot').forEach(function(d) { d.classList.remove('active'); });
         if (slides[n]) slides[n].classList.add('active');
         this.classList.add('active');
+        current = n;
       });
     });
   }
@@ -306,6 +307,14 @@ document.addEventListener('DOMContentLoaded', function() {
    if(ca)ca.addEventListener('click',function(){localStorage.setItem('cookieConsent','all');verbergBanner()});
    if(cn)cn.addEventListener('click',function(){localStorage.setItem('cookieConsent','necessary');verbergBanner()})
   }
+
+  // Foto's beschermen: geen rechtermuisklik / slepen op afbeeldingen
+  document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+  });
+  document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+  });
 });
 
 
