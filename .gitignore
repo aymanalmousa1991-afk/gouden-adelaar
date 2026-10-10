@@ -26,3 +26,4 @@ check-labels.js
 # Originele foto's zonder watermerk niet in de (openbare) repo
 originelen/[0-9]*.jpg
 originelen/logo niew.jpg
+originelen/dienst-*.jpg

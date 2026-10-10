@@ -247,10 +247,13 @@
             { src: '/img/projecten/hal-sierpleister.jpg', cat: 'Sierpleister', titel: 'Entree in sierpleister' },
             { src: '/img/projecten/wandpaneel-nis.jpg', cat: 'Maatwerk', titel: 'Wandpaneel met nis' },
             { src: '/img/projecten/verbouwing-in-uitvoering.jpg', cat: 'Renovatie', titel: 'Verbouwing in uitvoering' },
+            { src: '/img/projecten/keuken-renovatie.jpg', cat: 'Keuken', titel: 'Moderne hoekkeuken' },
+            { src: '/img/projecten/behangwerk.jpg', cat: 'Wandafwerking', titel: 'Kleurrijke wandafwerking' },
+            { src: '/img/projecten/sloopwerk.jpg', cat: 'Renovatie', titel: 'Sloopwerk & voorbereiding' },
         ];
 
         // Filtergroepen (meerdere categorieën samen)
-        const GROEPEN = { Betonlook: "Sierpleister & stuc", Sierpleister: "Sierpleister & stuc", Stucwerk: "Sierpleister & stuc", Wandafwerking: "Wanden & maatwerk", Maatwerk: "Wanden & maatwerk", Vloeren: "Vloeren & tegels", Tegelwerk: "Vloeren & tegels", Badkamer: "Badkamers", Traprenovatie: "Trappen", Plafonds: "Plafonds", Schilderwerk: "Schilderwerk", Woningrenovatie: "Renovatie", Renovatie: "Renovatie", Bedrijfsruimte: "Renovatie" };
+        const GROEPEN = { Betonlook: "Sierpleister & stuc", Sierpleister: "Sierpleister & stuc", Stucwerk: "Sierpleister & stuc", Wandafwerking: "Wanden & maatwerk", Maatwerk: "Wanden & maatwerk", Vloeren: "Vloeren & tegels", Tegelwerk: "Vloeren & tegels", Badkamer: "Badkamers", Keuken: "Keukens", Traprenovatie: "Trappen", Plafonds: "Plafonds", Schilderwerk: "Schilderwerk", Woningrenovatie: "Renovatie", Renovatie: "Renovatie", Bedrijfsruimte: "Renovatie" };
         const groep = (f) => GROEPEN[f.cat] || f.cat;
 
         // Render grid + filter
